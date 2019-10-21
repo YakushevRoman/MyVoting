@@ -1,7 +1,6 @@
 package com.example.myvoting.fragments;
 
 import android.os.Bundle;
-import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -14,12 +13,7 @@ import android.arch.lifecycle.Observer;
 import android.arch.lifecycle.ViewModelProviders;
 
 import com.example.myvoting.R;
-import com.example.myvoting.adapters.ListUsersAdapter;
-import com.example.myvoting.models.User;
-import com.example.myvoting.ui.home.ListUsersViewModel;
-
-import java.util.ArrayList;
-import java.util.List;
+import com.example.myvoting.providers.ListUsersViewModel;
 
 public class ListUsersFragment extends Fragment {
 
@@ -46,14 +40,15 @@ public class ListUsersFragment extends Fragment {
         });
 
         final RecyclerView recyclerViewListUsersFragment = (RecyclerView) view.findViewById(R.id.recycler_list_users);
-        recyclerViewListUsersFragment.setLayoutManager(new LinearLayoutManager(this.getContext()));
+
+        /*recyclerViewListUsersFragment.setLayoutManager(new LinearLayoutManager(this.getContext()));
         List <User> listUsers = new ArrayList<>();
         User user = new User();
         user.setId(1);
         user.setNameUser("Roman");
         listUsers.add(user);
         ListUsersAdapter listUsersAdapter = new ListUsersAdapter(listUsers);
-        recyclerViewListUsersFragment.setAdapter(listUsersAdapter);
+        recyclerViewListUsersFragment.setAdapter(listUsersAdapter);*/
 
     }
 }
