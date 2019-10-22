@@ -17,12 +17,10 @@ import com.arellomobile.mvp.MvpAppCompatFragment;
 import com.arellomobile.mvp.presenter.InjectPresenter;
 import com.example.myvoting.R;
 import com.example.myvoting.app.adapters.ListUsersAdapter;
-import com.example.myvoting.app.models.User;
+import com.example.myvoting.app.models.UserModel;
 import com.example.myvoting.app.presenters.ListViewPresenter;
 import com.example.myvoting.app.providers.ListUsersViewModel;
 import com.example.myvoting.app.views.ListUsersView;
-import com.example.myvoting.di.AppComponent;
-import com.example.myvoting.di.modules.ContextModule;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -66,8 +64,8 @@ public class ListUsersFragment extends MvpAppCompatFragment implements ListUsers
         final RecyclerView recyclerViewListUsersFragment = (RecyclerView) view.findViewById(R.id.recycler_list_users);
 
         recyclerViewListUsersFragment.setLayoutManager(new LinearLayoutManager(this.getContext()));
-        List<User> listUsers = new ArrayList<>();
-        User user = new User();
+        List<UserModel> listUsers = new ArrayList<>();
+        UserModel user = new UserModel();
         user.setId(1);
         user.setNameUser("Roman");
         listUsers.add(user);

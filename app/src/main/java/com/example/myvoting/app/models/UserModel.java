@@ -1,6 +1,6 @@
 package com.example.myvoting.app.models;
 
-public class User {
+public class UserModel {
 
     private int id;
     private String nameUser;

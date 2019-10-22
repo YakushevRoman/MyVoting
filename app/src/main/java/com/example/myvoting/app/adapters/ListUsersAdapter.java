@@ -9,15 +9,15 @@ import android.view.ViewGroup;
 import android.widget.Button;
 
 import com.example.myvoting.R;
-import com.example.myvoting.app.models.User;
+import com.example.myvoting.app.models.UserModel;
 
 import java.util.List;
 
 public class ListUsersAdapter extends RecyclerView.Adapter<ListUsersAdapter.ListUsersHolder>{
-    private List <User> listUsers;
+    private List <UserModel> listUsers;
 
 
-    public ListUsersAdapter(List<User> listUsers) {
+    public ListUsersAdapter(List<UserModel> listUsers) {
         this.listUsers = listUsers;
     }
 
@@ -48,7 +48,7 @@ public class ListUsersAdapter extends RecyclerView.Adapter<ListUsersAdapter.List
             buttonUser = itemView.findViewById(R.id.button_list_users_recycler);
         }
 
-        public void bindListUsersHolder (User user){
+        public void bindListUsersHolder (UserModel user){
             buttonUser.setText(user.getNameUser());
         }
 
