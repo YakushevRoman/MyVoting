@@ -1,4 +1,4 @@
-package com.example.myvoting.fragments;
+package com.example.myvoting.app.ui.tools;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -12,19 +12,18 @@ import android.arch.lifecycle.Observer;
 import android.arch.lifecycle.ViewModelProviders;
 
 import com.example.myvoting.R;
-import com.example.myvoting.ui.share.ShareViewModel;
 
-public class ShareFragment extends Fragment {
+public class ToolsFragment extends Fragment {
 
-    private ShareViewModel shareViewModel;
+    private ToolsViewModel toolsViewModel;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
-        shareViewModel =
-                ViewModelProviders.of(this).get(ShareViewModel.class);
-        View root = inflater.inflate(R.layout.fragment_share, container, false);
-        final TextView textView = root.findViewById(R.id.text_share);
-        shareViewModel.getText().observe(this, new Observer<String>() {
+        toolsViewModel =
+                ViewModelProviders.of(this).get(ToolsViewModel.class);
+        View root = inflater.inflate(R.layout.fragment_tools, container, false);
+        final TextView textView = root.findViewById(R.id.text_tools);
+        toolsViewModel.getText().observe(this, new Observer<String>() {
             @Override
             public void onChanged(@Nullable String s) {
                 textView.setText(s);

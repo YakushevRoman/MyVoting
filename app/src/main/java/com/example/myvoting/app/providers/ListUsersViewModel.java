@@ -1,10 +1,10 @@
-package com.example.myvoting.providers;
+package com.example.myvoting.app.providers;
 
 import android.arch.lifecycle.LiveData;
 import android.arch.lifecycle.MutableLiveData;
 import android.arch.lifecycle.ViewModel;
 
-import com.example.myvoting.models.User;
+import com.example.myvoting.app.models.User;
 
 public class ListUsersViewModel extends ViewModel {
 

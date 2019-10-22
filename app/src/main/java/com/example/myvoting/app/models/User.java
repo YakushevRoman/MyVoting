@@ -1,4 +1,4 @@
-package com.example.myvoting.models;
+package com.example.myvoting.app.models;
 
 public class User {
 

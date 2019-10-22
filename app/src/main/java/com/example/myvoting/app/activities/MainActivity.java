@@ -1,4 +1,4 @@
-package com.example.myvoting.activities;
+package com.example.myvoting.app.activities;
 
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
@@ -17,9 +17,10 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 
+import com.arellomobile.mvp.MvpAppCompatActivity;
 import com.example.myvoting.R;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends MvpAppCompatActivity {
 
     private AppBarConfiguration mAppBarConfiguration;
 

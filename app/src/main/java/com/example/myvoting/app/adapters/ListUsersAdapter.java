@@ -1,4 +1,4 @@
-package com.example.myvoting.adapters;
+package com.example.myvoting.app.adapters;
 
 import android.content.Context;
 import android.support.annotation.NonNull;
@@ -9,7 +9,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 
 import com.example.myvoting.R;
-import com.example.myvoting.models.User;
+import com.example.myvoting.app.models.User;
 
 import java.util.List;
 
