@@ -7,4 +7,5 @@
     <dimen name="fab_margin">16dp</dimen>
     <dimen name="text_size">20sp</dimen>
     <dimen name="margin">8dp</dimen>
+    <dimen name="width_for_constraint_layout">0dp</dimen>
 </resources>

@@ -17,4 +17,6 @@
     <string name="text_the_worst_button">Плохая оценка</string>
     <string name="text_good_button">Хорошая оценка</string>
     <string name="text_the_best_button">Самая лучшая оценка</string>
+    <string name="input_name">Введите имя</string>
+    <string name="add_new_users">Добавить нового пользователя</string>
 </resources>

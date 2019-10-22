@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <android.support.constraint.Guideline
+        android:id="@+id/gl_horizontal_first_add_new_user"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.05"/>
+
+    <android.support.constraint.Guideline
+        android:id="@+id/gl_vertical_first_add_new_user"
+        android:orientation="vertical"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintGuide_percent="0.05"
+        />
+
+    <EditText
+        android:id="@+id/et_add_new_user"
+        android:layout_width="@dimen/width_for_constraint_layout"
+        android:layout_height="wrap_content"
+        android:textSize="@dimen/text_size"
+        android:inputType="text"
+        android:hint="@string/input_name"
+        android:layout_marginStart="@dimen/margin"
+        android:layout_marginTop="@dimen/margin"
+        android:layout_marginEnd="@dimen/margin"
+        android:layout_marginBottom="@dimen/margin"
+        app:layout_constraintLeft_toLeftOf="@id/gl_vertical_first_add_new_user"
+        app:layout_constraintRight_toRightOf= "@id/gl_vertical_second_add_new_user"
+        app:layout_constraintTop_toTopOf="@id/gl_horizontal_first_add_new_user"
+        app:layout_constraintBottom_toTopOf="@id/btn_add_new_user"
+        android:importantForAutofill="no" />
+
+    <Button
+        android:id="@+id/btn_add_new_user"
+        android:layout_width="@dimen/width_for_constraint_layout"
+        android:layout_height="wrap_content"
+        android:textSize="@dimen/text_size"
+        android:text="@string/add_new_users"
+        android:layout_marginStart="@dimen/margin"
+        android:layout_marginTop="@dimen/margin"
+        android:layout_marginEnd="@dimen/margin"
+        android:layout_marginBottom="@dimen/margin"
+        app:layout_constraintLeft_toLeftOf="@id/gl_vertical_first_add_new_user"
+        app:layout_constraintRight_toRightOf="@id/gl_vertical_second_add_new_user"
+        app:layout_constraintTop_toBottomOf="@id/et_add_new_user"/>
+
+    <android.support.constraint.Guideline
+        android:id="@+id/gl_horizontal_second_add_new_user"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.95"/>
+
+    <android.support.constraint.Guideline
+        android:id="@+id/gl_vertical_second_add_new_user"
+        android:orientation="vertical"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintGuide_percent="0.95"
+        />
+
+</android.support.constraint.ConstraintLayout>
