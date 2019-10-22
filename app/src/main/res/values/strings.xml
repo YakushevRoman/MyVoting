@@ -14,4 +14,7 @@
     <string name="menu_share">Share</string>
     <string name="menu_send">Send</string>
     <string name="hint_button_for_recycler">button for recycler</string>
+    <string name="text_the_worst_button">Плохая оценка</string>
+    <string name="text_good_button">Хорошая оценка</string>
+    <string name="text_the_best_button">Самая лучшая оценка</string>
 </resources>

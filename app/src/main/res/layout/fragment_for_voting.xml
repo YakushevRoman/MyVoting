@@ -1,6 +1,85 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <android.support.constraint.Guideline
+        android:id="@+id/gl_horizontal_1_voting"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.35"
+        />
+
+    <android.support.constraint.Guideline
+        android:id="@+id/gl_vertical_1_voting"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.10"
+        />
+
+    <android.support.constraint.Guideline
+        android:id="@+id/gl_vertical_2_voting"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.90"
+        />
+
+    <Button
+        android:id="@+id/btn_the_worst_voting"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:textSize="@dimen/text_size"
+        android:text="@string/text_the_worst_button"
+        android:layout_marginStart="@dimen/margin"
+        android:layout_marginTop="@dimen/margin"
+        android:layout_marginEnd="@dimen/margin"
+        android:layout_marginBottom="@dimen/margin"
+        android:gravity="center"
+        app:layout_constraintLeft_toLeftOf="@id/gl_vertical_1_voting"
+        app:layout_constraintRight_toRightOf="@id/gl_vertical_2_voting"
+        app:layout_constraintTop_toTopOf="@id/gl_horizontal_1_voting"
+        app:layout_constraintBottom_toTopOf="@id/btn_good_voting"/>
+
+    <Button
+        android:id="@+id/btn_good_voting"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:textSize="@dimen/text_size"
+        android:text="@string/text_good_button"
+        android:layout_marginStart="@dimen/margin"
+        android:layout_marginTop="@dimen/margin"
+        android:layout_marginEnd="@dimen/margin"
+        android:layout_marginBottom="@dimen/margin"
+        app:layout_constraintLeft_toLeftOf="@id/gl_vertical_1_voting"
+        app:layout_constraintRight_toRightOf="@id/gl_vertical_2_voting"
+        app:layout_constraintTop_toBottomOf="@id/btn_the_worst_voting"
+        app:layout_constraintBottom_toTopOf="@id/btn_the_best_voting"/>
+
+    <Button
+        android:id="@+id/btn_the_best_voting"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:textSize="@dimen/text_size"
+        android:text="@string/text_the_best_button"
+        android:layout_marginStart="@dimen/margin"
+        android:layout_marginTop="@dimen/margin"
+        android:layout_marginEnd="@dimen/margin"
+        android:layout_marginBottom="@dimen/margin"
+        app:layout_constraintLeft_toLeftOf="@id/gl_vertical_1_voting"
+        app:layout_constraintRight_toRightOf="@id/gl_vertical_2_voting"
+        app:layout_constraintTop_toBottomOf="@id/btn_good_voting"
+        app:layout_constraintBottom_toBottomOf="@id/gl_horizontal_2_voting"/>
+
+    <android.support.constraint.Guideline
+        android:id="@+id/gl_horizontal_2_voting"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.65"
+        />
 
 </android.support.constraint.ConstraintLayout>

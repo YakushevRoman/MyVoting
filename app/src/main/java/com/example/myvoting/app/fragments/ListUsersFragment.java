@@ -21,6 +21,9 @@ import com.example.myvoting.app.models.User;
 import com.example.myvoting.app.presenters.ListViewPresenter;
 import com.example.myvoting.app.providers.ListUsersViewModel;
 import com.example.myvoting.app.views.ListUsersView;
+import com.example.myvoting.di.AppComponent;
+import com.example.myvoting.di.modules.ContextModule;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -33,10 +36,17 @@ public class ListUsersFragment extends MvpAppCompatFragment implements ListUsers
 
     private ListUsersViewModel homeViewModel;
 
+    //private AppComponent appComponent;
+
+    @Override
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+
+    }
+
+
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
-        homeViewModel =
-                ViewModelProviders.of(this).get(ListUsersViewModel.class);
 
         return inflater.inflate(R.layout.list_users_fragment, container, false);
     }
@@ -45,6 +55,8 @@ public class ListUsersFragment extends MvpAppCompatFragment implements ListUsers
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
+        homeViewModel =
+                ViewModelProviders.of(this).get(ListUsersViewModel.class);
         final TextView textView = view.findViewById(R.id.text_home);
         homeViewModel.getText().observe(this, new Observer<String>() {
             @Override
