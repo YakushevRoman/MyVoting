@@ -21,10 +21,6 @@ public class VotingFragment extends MvpAppCompatFragment implements VotingView {
     @InjectPresenter
     VotingPresenter mVotingPresenter;
 
-    private Button btnTheWorstVoting;
-    private Button btnGoodVoting;
-    private Button btnTheBestVoting;
-
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -35,16 +31,14 @@ public class VotingFragment extends MvpAppCompatFragment implements VotingView {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        btnTheWorstVoting = view.findViewById(R.id.btn_the_worst_voting);
-        btnGoodVoting = view.findViewById(R.id.btn_good_voting);
-        btnTheBestVoting = view.findViewById(R.id.btn_the_best_voting);
-
-
+        Button btnTheWorstVoting = view.findViewById(R.id.btn_the_worst_voting);
+        Button btnGoodVoting = view.findViewById(R.id.btn_good_voting);
+        Button btnTheBestVoting = view.findViewById(R.id.btn_the_best_voting);
 
         btnTheWorstVoting.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                mVotingPresenter.setValueVoting(VotingModel.KEY_THE_BEST);
+                mVotingPresenter.setValueVoting(VotingModel.KEY_THE_WORST);
             }
         });
 
