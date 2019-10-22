@@ -36,8 +36,6 @@ public class ListUsersFragment extends MvpAppCompatFragment implements ListUsers
 
     private ListUsersViewModel homeViewModel;
 
-    //private AppComponent appComponent;
-
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

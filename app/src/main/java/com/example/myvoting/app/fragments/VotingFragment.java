@@ -6,12 +6,24 @@ import android.support.annotation.Nullable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.Toast;
 
 import com.arellomobile.mvp.MvpAppCompatFragment;
+import com.arellomobile.mvp.presenter.InjectPresenter;
 import com.example.myvoting.R;
+import com.example.myvoting.app.models.VotingModel;
+import com.example.myvoting.app.presenters.VotingPresenter;
 import com.example.myvoting.app.views.VotingView;
 
 public class VotingFragment extends MvpAppCompatFragment implements VotingView {
+
+    @InjectPresenter
+    VotingPresenter mVotingPresenter;
+
+    private Button btnTheWorstVoting;
+    private Button btnGoodVoting;
+    private Button btnTheBestVoting;
 
     @Nullable
     @Override
@@ -23,5 +35,39 @@ public class VotingFragment extends MvpAppCompatFragment implements VotingView {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
+        btnTheWorstVoting = view.findViewById(R.id.btn_the_worst_voting);
+        btnGoodVoting = view.findViewById(R.id.btn_good_voting);
+        btnTheBestVoting = view.findViewById(R.id.btn_the_best_voting);
+
+
+
+        btnTheWorstVoting.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                mVotingPresenter.setValueVoting(VotingModel.KEY_THE_BEST);
+            }
+        });
+
+        btnGoodVoting.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                mVotingPresenter.setValueVoting(VotingModel.KEY_GOOD);
+            }
+        });
+
+        btnTheBestVoting.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                mVotingPresenter.setValueVoting(VotingModel.KEY_THE_BEST);
+            }
+        });
+
+
+    }
+
+    @Override
+    public void showResultVoting(String resultVoting) {
+        Toast.makeText(getContext(), resultVoting, Toast.LENGTH_SHORT).show();
     }
 }
