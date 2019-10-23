@@ -5,5 +5,6 @@ import com.example.myvoting.app.models.UserModel;
 
 public interface AddNewUserView extends MvpView {
     void showNewUser (String nameNewUser);
-    UserModel setUser ();
+    void setUser ();
+    void setEtIsEmpty();
 }
