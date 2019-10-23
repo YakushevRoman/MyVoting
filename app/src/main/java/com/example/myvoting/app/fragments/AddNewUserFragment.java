@@ -16,15 +16,22 @@ import com.example.myvoting.R;
 import com.example.myvoting.app.models.UserModel;
 import com.example.myvoting.app.presenters.AddNewUserPresenter;
 import com.example.myvoting.app.views.AddNewUserView;
-
 import java.util.concurrent.TimeUnit;
-
+import io.reactivex.BackpressureStrategy;
+import io.reactivex.Flowable;
+import io.reactivex.FlowableEmitter;
+import io.reactivex.FlowableOnSubscribe;
 import io.reactivex.Observable;
 import io.reactivex.ObservableEmitter;
 import io.reactivex.ObservableOnSubscribe;
 import io.reactivex.Observer;
+import io.reactivex.Single;
+import io.reactivex.SingleEmitter;
+import io.reactivex.SingleObserver;
+import io.reactivex.SingleOnSubscribe;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.disposables.Disposable;
+import io.reactivex.functions.Consumer;
 import io.reactivex.schedulers.Schedulers;
 
 
@@ -43,29 +50,60 @@ public class AddNewUserFragment extends MvpAppCompatFragment implements AddNewUs
                 .subscribeOn(Schedulers.newThread())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(new Observer<Integer>() {
-            @Override
-            public void onSubscribe(Disposable d) {
+                    @Override
+                    public void onSubscribe(Disposable d) {
 
-            }
+                    }
 
-            @Override
-            public void onNext(Integer integer) {
-                Log.d("Tag", String.valueOf(integer));
-                etAddNewUser.setText(String.valueOf(integer));
-            }
+                    @Override
+                    public void onNext(Integer integer) {
+                        Log.d("Tag", "Observer " + integer);
+                        etAddNewUser.setText(String.valueOf(integer));
+                    }
 
-            @Override
-            public void onError(Throwable e) {
+                    @Override
+                    public void onError(Throwable e) {
 
-            }
+                    }
 
-            @Override
-            public void onComplete() {
+                    @Override
+                    public void onComplete() {
 
-            }
-        });
+                    }
+                });
+
+        dataSingle(12345)
+                .subscribeOn(Schedulers.newThread())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(new SingleObserver<Integer>() {
+                    @Override
+                    public void onSubscribe(Disposable d) {
+
+                    }
+
+                    @Override
+                    public void onSuccess(Integer integer) {
+                        Log.d("Tag", "Single " + integer );
+                    }
+
+                    @Override
+                    public void onError(Throwable e) {
+
+                    }
+                });
+
+        dataFlowable(2)
+                .subscribeOn(Schedulers.newThread())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(new Consumer<Integer>() {
+                    @Override
+                    public void accept(Integer integer){
+                        Log.d("Tag", "Single " + integer );
+                    }
+
+                });
+
     }
-
     public Observable<Integer> dataSource (final int count){
         return Observable.create(new ObservableOnSubscribe<Integer>() {
             @Override
@@ -81,6 +119,32 @@ public class AddNewUserFragment extends MvpAppCompatFragment implements AddNewUs
             }
         });
     }
+
+    public Flowable <Integer> dataFlowable (final int count){
+        return Flowable.create(new FlowableOnSubscribe<Integer>() {
+            @Override
+            public void subscribe(FlowableEmitter<Integer> emitter) {
+                for (int i = 0; i < count; i++) {
+                    try {
+                        TimeUnit.SECONDS.sleep(1);
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
+                    emitter.onNext(i);
+                }
+            }
+        }, BackpressureStrategy.BUFFER);
+    }
+
+    public Single <Integer> dataSingle (final int count){
+        return Single.create(new SingleOnSubscribe<Integer>() {
+            @Override
+            public void subscribe(SingleEmitter<Integer> emitter) {
+                emitter.onSuccess(count);
+            }
+        });
+    }
+
 
     @Nullable
     @Override
