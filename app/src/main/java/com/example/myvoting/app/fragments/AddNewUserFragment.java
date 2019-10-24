@@ -92,7 +92,7 @@ public class AddNewUserFragment extends MvpAppCompatFragment implements AddNewUs
                     }
                 });
 
-        dataFlowable(2)
+        Disposable disposable = dataFlowable(2)
                 .subscribeOn(Schedulers.newThread())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(new Consumer<Integer>() {
@@ -100,8 +100,8 @@ public class AddNewUserFragment extends MvpAppCompatFragment implements AddNewUs
                     public void accept(Integer integer){
                         Log.d("Tag", "Single " + integer );
                     }
-
                 });
+        disposable.dispose();
 
     }
     public Observable<Integer> dataSource (final int count){
@@ -162,15 +162,13 @@ public class AddNewUserFragment extends MvpAppCompatFragment implements AddNewUs
         etAddNewUser = view.findViewById (R.id.et_add_new_user);
         Button  btnAddNewUser = view.findViewById(R.id.btn_add_new_user);
 
-        btnAddNewUser.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                String userName = etAddNewUser.getText().toString();
-                UserModel userModel = new UserModel();
-                userModel.setNameUser(userName);
-                userModel.setId(1);
-                addNewUserPresenter.showNewUser(userModel);
-            }
+
+        btnAddNewUser.setOnClickListener(v -> {
+            String userName = etAddNewUser.getText().toString();
+            UserModel userModel = new UserModel();
+            userModel.setNameUser(userName);
+            userModel.setId(1);
+            addNewUserPresenter.showNewUser(userModel);
         });
 
     }
@@ -189,4 +187,5 @@ public class AddNewUserFragment extends MvpAppCompatFragment implements AddNewUs
     public void setEtIsEmpty() {
         etAddNewUser.setText("");
     }
+
 }

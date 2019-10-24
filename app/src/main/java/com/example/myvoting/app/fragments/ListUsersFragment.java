@@ -72,12 +72,7 @@ public class ListUsersFragment extends MvpAppCompatFragment implements ListUsers
         ListUsersAdapter listUsersAdapter = new ListUsersAdapter(listUsers);
         recyclerViewListUsersFragment.setAdapter(listUsersAdapter);
 
-        textView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                listViewPresenter.changeTest();
-            }
-        });
+        textView.setOnClickListener(v -> listViewPresenter.changeTest());
 
     }
 
