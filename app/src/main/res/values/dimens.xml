@@ -8,4 +8,6 @@
     <dimen name="text_size">20sp</dimen>
     <dimen name="margin">8dp</dimen>
     <dimen name="width_for_constraint_layout">0dp</dimen>
+    <dimen name="width_for_image">300dp</dimen>
+    <dimen name="height_for_image">200dp</dimen>
 </resources>

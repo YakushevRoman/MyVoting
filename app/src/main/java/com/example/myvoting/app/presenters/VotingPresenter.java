@@ -2,7 +2,7 @@ package com.example.myvoting.app.presenters;
 
 import com.arellomobile.mvp.InjectViewState;
 import com.arellomobile.mvp.MvpPresenter;
-import com.example.myvoting.app.models.VotingModel;
+import com.example.myvoting.app.providers.VotingModel;
 import com.example.myvoting.app.views.VotingView;
 
 @InjectViewState

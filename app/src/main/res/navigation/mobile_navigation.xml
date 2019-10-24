@@ -24,14 +24,9 @@
         tools:layout="@layout/fragment_slideshow" />
 
     <fragment
-        android:id="@+id/nav_share"
-        android:name="com.example.myvoting.app.ui.share.ShareFragment"
-        android:label="@string/menu_share"
+        android:id="@+id/nav_information"
+        android:name="com.example.myvoting.app.fragments.InformationFragment"
+        android:label="@string/menu_information"
         tools:layout="@layout/fragment_share" />
 
-    <fragment
-        android:id="@+id/nav_send"
-        android:name="com.example.myvoting.app.ui.send.SendFragment"
-        android:label="@string/menu_send"
-        tools:layout="@layout/fragment_send" />
 </navigation>

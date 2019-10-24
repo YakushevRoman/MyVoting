@@ -10,7 +10,7 @@
     <string name="menu_list_users">List users</string>
     <string name="menu_voting">Voting</string>
     <string name="menu_add_new_user">Add new user</string>
-    <string name="menu_share">Share</string>
+    <string name="menu_information">Information</string>
     <string name="menu_send">Send</string>
     <string name="hint_button_for_recycler">button for recycler</string>
     <string name="text_the_worst_button">Плохая оценка</string>
@@ -21,4 +21,8 @@
     <string name="add_new_user">Add new user</string>
     <string name="communicate">Communicate</string>
     <string name="text_list_users_fragment">This is home fragment</string>
+    <string name="image_for_information_fragment">Image for information fragment</string>
+
+    <string name="information">Hello, my friend!!! \n I use some libraries in this app. \n
+        RxJava/RxAndroid \n Moxy \n Room \n Retrofit2  </string>
 </resources>
