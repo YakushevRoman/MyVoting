@@ -12,7 +12,7 @@ import android.widget.Toast;
 import com.arellomobile.mvp.MvpAppCompatFragment;
 import com.arellomobile.mvp.presenter.InjectPresenter;
 import com.example.myvoting.R;
-import com.example.myvoting.app.providers.VotingModel;
+import com.example.myvoting.app.providers.VotingProvider;
 import com.example.myvoting.app.presenters.VotingPresenter;
 import com.example.myvoting.app.views.VotingView;
 
@@ -38,14 +38,14 @@ public class VotingFragment extends MvpAppCompatFragment implements VotingView {
         btnTheWorstVoting.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                mVotingPresenter.setValueVoting(VotingModel.KEY_THE_WORST);
+                mVotingPresenter.setValueVoting(VotingProvider.KEY_THE_WORST);
             }
         });
 
         btnGoodVoting.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                mVotingPresenter.setValueVoting(VotingModel.KEY_GOOD);
+                mVotingPresenter.setValueVoting(VotingProvider.KEY_GOOD);
             }
         });
 
@@ -53,7 +53,7 @@ public class VotingFragment extends MvpAppCompatFragment implements VotingView {
             @Override
             public void onClick(View v) {
 
-                mVotingPresenter.setValueVoting(VotingModel.KEY_THE_BEST);
+                mVotingPresenter.setValueVoting(VotingProvider.KEY_THE_BEST);
             }
         });
 

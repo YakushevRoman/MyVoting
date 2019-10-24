@@ -2,6 +2,8 @@ package com.example.myvoting.app.providers;
 import android.content.Context;
 import com.example.myvoting.R;
 import com.example.myvoting.app.models.UserModel;
+import com.example.myvoting.di.AppVoting;
+
 import java.util.ArrayList;
 import java.util.List;
 import io.reactivex.Single;
@@ -12,8 +14,12 @@ import io.reactivex.Single;
 public class ListUsersProvider {
 
     public Single <String> getStringForListUsers (){
-        //return Single.create(emitter -> emitter.onSuccess(context.getString(R.string.text_list_users_fragment)));  This is home fragment
-        return Single.create(emitter -> emitter.onSuccess("This is list fragment"));
+        String information = AppVoting
+                .getInstance()
+                .getContext()
+                .getResources()
+                .getString(R.string.text_list_users_fragment);
+        return Single.create(emitter -> emitter.onSuccess(information));
     }
 
     public Single <List<UserModel>> getUserModel(){

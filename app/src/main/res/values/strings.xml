@@ -25,4 +25,5 @@
 
     <string name="information">Hello, my friend!!! \n I use some libraries in this app. \n
         RxJava/RxAndroid \n Moxy \n Room \n Retrofit2  </string>
+    <string name="this_is_list_fragment">This is list fragment</string>
 </resources>

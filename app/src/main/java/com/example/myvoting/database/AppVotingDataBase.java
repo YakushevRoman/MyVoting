@@ -3,12 +3,12 @@ package com.example.myvoting.database;
 import android.arch.persistence.room.Database;
 import android.arch.persistence.room.RoomDatabase;
 
-import com.example.myvoting.database.Daos.ResultUserVotingDao;
-import com.example.myvoting.database.Entities.ResultUserVotingEntity;
+import com.example.myvoting.database.Daos.VotingDao;
+import com.example.myvoting.database.Entities.VotingEntity;
 
-@Database(  entities = ResultUserVotingEntity.class,
+@Database(  entities = VotingEntity.class,
             exportSchema = false,
-            version = 1)
+            version = 2)
 public abstract class AppVotingDataBase extends RoomDatabase {
-    abstract ResultUserVotingDao getResultUserVotingDao();
+    abstract VotingDao getVotingDao ();
 }
