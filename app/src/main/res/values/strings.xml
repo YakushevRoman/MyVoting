@@ -20,4 +20,5 @@
     <string name="add_new_users">Добавить нового пользователя</string>
     <string name="add_new_user">Add new user</string>
     <string name="communicate">Communicate</string>
+    <string name="text_list_users_fragment">This is home fragment</string>
 </resources>

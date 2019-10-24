@@ -1,30 +1,33 @@
 package com.example.myvoting.app.adapters;
-
-import android.content.Context;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-
 import com.example.myvoting.R;
 import com.example.myvoting.app.models.UserModel;
-
+import java.util.ArrayList;
 import java.util.List;
 
 public class ListUsersAdapter extends RecyclerView.Adapter<ListUsersAdapter.ListUsersHolder>{
-    private List <UserModel> listUsers;
+
+    private List <UserModel> listUsers = new ArrayList<>();
 
 
-    public ListUsersAdapter(List<UserModel> listUsers) {
-        this.listUsers = listUsers;
+    public ListUsersAdapter() {
+
+    }
+
+    public void setListUsersAdapter (List<UserModel> newListUsers){
+        listUsers.clear();
+        listUsers.addAll(newListUsers);
+        notifyDataSetChanged();
     }
 
     @NonNull
     @Override
     public ListUsersHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
-        Context context;
         LayoutInflater inflater = LayoutInflater.from(viewGroup.getContext());
         View view = inflater.inflate(R.layout.item_list_users, viewGroup, false);
         return new ListUsersHolder(view);
@@ -42,13 +45,13 @@ public class ListUsersAdapter extends RecyclerView.Adapter<ListUsersAdapter.List
 
     class ListUsersHolder extends RecyclerView.ViewHolder{
         private Button buttonUser;
-        public ListUsersHolder(@NonNull View itemView) {
+        ListUsersHolder(@NonNull View itemView) {
             super(itemView);
 
             buttonUser = itemView.findViewById(R.id.button_list_users_recycler);
         }
 
-        public void bindListUsersHolder (UserModel user){
+        void bindListUsersHolder(UserModel user){
             buttonUser.setText(user.getNameUser());
         }
 

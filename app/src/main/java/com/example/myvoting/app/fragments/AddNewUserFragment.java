@@ -101,7 +101,7 @@ public class AddNewUserFragment extends MvpAppCompatFragment implements AddNewUs
                         Log.d("Tag", "Single " + integer );
                     }
                 });
-        disposable.dispose();
+       // disposable.dispose();
 
     }
     public Observable<Integer> dataSource (final int count){
@@ -137,12 +137,7 @@ public class AddNewUserFragment extends MvpAppCompatFragment implements AddNewUs
     }
 
     public Single <Integer> dataSingle (final int count){
-        return Single.create(new SingleOnSubscribe<Integer>() {
-            @Override
-            public void subscribe(SingleEmitter<Integer> emitter) {
-                emitter.onSuccess(count);
-            }
-        });
+        return Single.create(emitter -> emitter.onSuccess(count));
     }
 
 
