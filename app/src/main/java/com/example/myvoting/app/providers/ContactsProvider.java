@@ -4,19 +4,14 @@ import android.content.ContentResolver;
 import android.database.Cursor;
 import android.provider.ContactsContract;
 import android.util.Log;
-
 import com.example.myvoting.app.models.UserModel;
 import com.example.myvoting.data.Daos.UsersDao;
 import com.example.myvoting.data.Entities.UserEntity;
 import com.example.myvoting.di.AppVoting;
-
 import java.util.ArrayList;
 import java.util.List;
-
-import io.reactivex.Scheduler;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.disposables.Disposable;
-import io.reactivex.functions.Consumer;
 import io.reactivex.schedulers.Schedulers;
 
 /**
@@ -24,6 +19,7 @@ import io.reactivex.schedulers.Schedulers;
  */
 public class ContactsProvider {
 
+    private static final String TAG = "TAG" ;
     private List <UserModel> userModels;
     private ContentResolver contentResolver;
     private List <UserEntity> userEntities;
@@ -55,20 +51,23 @@ public class ContactsProvider {
                 userEntities.add(user);
             }
             cursor.close();
-
-            UsersDao usersDao = AppVoting.getInstance().getAppDataBase().getUsersDao();
-            usersDao.insertListUsers(userEntities);
-
-
-            //Log.d("TAG", "size" + userEntities.size());
-            Disposable disposable = usersDao
-                    .getAllUsers()
-                    .subscribeOn(Schedulers.newThread())
-                    .observeOn(AndroidSchedulers.mainThread())
-                    .subscribe(userEntities -> {
-                        Log.d("TAG", "disposable size" + userEntities.size());
-                    });
+            setUserModels(userEntities);
         }
         return userModels;
+    }
+
+    public void setUserModels (List <UserEntity> userEntities){
+
+        UsersDao usersDao = AppVoting
+                .getInstance()
+                .getAppDataBase()
+                .getUsersDao();
+        usersDao.insertListUsers(userEntities);
+
+        Disposable disposable = usersDao
+                .getAllUsers()
+                .subscribeOn(Schedulers.newThread())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe( enty -> Log.d(TAG, "setUserModels: "+ enty.size()) );
     }
 }

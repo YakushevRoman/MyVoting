@@ -21,7 +21,6 @@ public class AppVoting extends Application {
     private static final String TAG = "TAG";
     @SuppressLint("StaticFieldLeak")
     private static AppVoting instance;
-    private Context context ;
     private AppDataBase appDataBase;
 
     private static AppComponent appComponent;
@@ -33,10 +32,14 @@ public class AppVoting extends Application {
 
         instance = this;
 
-        context = getApplicationContext();
+        appComponent = DaggerAppComponent
+                .builder()
+                .contextModule(new ContextModule(getApplicationContext()))
+                .timeModule(new TimeModule(new TimeProvider()))
+                .build();
 
         appDataBase = Room
-                .databaseBuilder(context, AppDataBase.class, "voting.db")
+                .databaseBuilder(getApplicationContext(), AppDataBase.class, "voting.db")
                 .allowMainThreadQueries()
                 .addCallback(new RoomDatabase.Callback() {
                     @Override
@@ -53,20 +56,10 @@ public class AppVoting extends Application {
                 })
                 .build();
 
-        appComponent = DaggerAppComponent
-                .builder()
-                .contextModule(new ContextModule(getApplicationContext()))
-                .timeModule(new TimeModule(new TimeProvider()))
-                .build();
-
     }
 
     public static AppVoting getInstance() {
         return instance;
-    }
-
-    public Context getContext() {
-        return context;
     }
 
     public AppDataBase getAppDataBase(){
