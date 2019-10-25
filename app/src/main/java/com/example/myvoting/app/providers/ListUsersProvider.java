@@ -24,7 +24,7 @@ public class ListUsersProvider {
 
     public Single <List<UserModel>> getUserModel(){
         ContactsProvider contactsProvider = new ContactsProvider();
-        contactsProvider.getAllContact();
         return Single.create(emitter -> emitter.onSuccess(contactsProvider.getAllContact()));
     }
+
 }

@@ -1,8 +1,13 @@
 package com.example.myvoting.data.Entities;
 
+import android.arch.persistence.room.Entity;
+import android.arch.persistence.room.PrimaryKey;
+
+@Entity
 public class UserEntity {
-    private int id;
-    private String nameUser;
+    @PrimaryKey (autoGenerate = true)
+    public int id;
+    public String nameUser;
 
     public int getId() {
         return id;
