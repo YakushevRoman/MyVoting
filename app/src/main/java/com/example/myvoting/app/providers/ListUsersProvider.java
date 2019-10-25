@@ -23,18 +23,8 @@ public class ListUsersProvider {
     }
 
     public Single <List<UserModel>> getUserModel(){
-
-        List<UserModel> list = new ArrayList<>();
-        UserModel userModelRoman = new UserModel();
-        userModelRoman.setId(1);
-        userModelRoman.setNameUser("Roman");
-        UserModel userModelIvan = new UserModel();
-        userModelIvan.setId(2);
-        userModelIvan.setNameUser("Ivan");
-
-        list.add(userModelIvan);
-        list.add(userModelRoman);
-
-        return Single.create(emitter -> emitter.onSuccess(list));
+        ContactsProvider contactsProvider = new ContactsProvider();
+        contactsProvider.getAllContact();
+        return Single.create(emitter -> emitter.onSuccess(contactsProvider.getAllContact()));
     }
 }

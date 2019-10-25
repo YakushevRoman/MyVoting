@@ -7,7 +7,9 @@ import com.example.myvoting.app.views.VotingView;
 
 @InjectViewState
 public class VotingPresenter extends MvpPresenter <VotingView> {
+
     private VotingProvider votingProvider;
+
     public VotingPresenter() {
         votingProvider = new VotingProvider();
     }

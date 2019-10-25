@@ -9,6 +9,7 @@ public class VotingEntity {
     public int uid;
     public int idUser;
     public int answer;
-    public String time;
+    public String currentDate;
+    public String currentTime;
 
 }

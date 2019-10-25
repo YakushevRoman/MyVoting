@@ -162,7 +162,6 @@ public class AddNewUserFragment extends MvpAppCompatFragment implements AddNewUs
             String userName = etAddNewUser.getText().toString();
             UserModel userModel = new UserModel();
             userModel.setNameUser(userName);
-            userModel.setId(1);
             addNewUserPresenter.showNewUser(userModel);
         });
 
