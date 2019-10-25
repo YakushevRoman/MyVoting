@@ -8,15 +8,15 @@ import dagger.Provides;
 @Module
 public class ContextModule {
 
-    private Context context;
+    private Context mContext;
 
-    public ContextModule(Context context) {
-        this.context = context;
+    public ContextModule(Context mContext) {
+        this.mContext = mContext;
     }
 
     @Provides
     @Singleton
-    public Context provideContext(){
-        return context;
+    Context provideContext(){
+        return mContext;
     }
 }

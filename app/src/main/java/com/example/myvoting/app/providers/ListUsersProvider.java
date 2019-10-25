@@ -14,16 +14,21 @@ import io.reactivex.Single;
 public class ListUsersProvider {
 
     public Single <String> getStringForListUsers (){
+
         String information = AppVoting
                 .getInstance()
-                .getContext()
+                .getAppComponent()
+                .getContextModule()
                 .getResources()
                 .getString(R.string.text_list_users_fragment);
+
         return Single.create(emitter -> emitter.onSuccess(information));
     }
 
     public Single <List<UserModel>> getUserModel(){
+
         ContactsProvider contactsProvider = new ContactsProvider();
+
         return Single.create(emitter -> emitter.onSuccess(contactsProvider.getAllContact()));
     }
 

@@ -23,7 +23,10 @@ public class VotingProvider {
                 .getInstance()
                 .getAppDataBase()
                 .getVotingDao();
-        timeProvider = new TimeProvider();
+        timeProvider = AppVoting
+                .getInstance()
+                .getAppComponent()
+                .getTimeProvider();
     }
 
     public void setVotingValue (int value) {

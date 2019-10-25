@@ -33,12 +33,17 @@ public class ContactsProvider {
         userEntities = new ArrayList<>();
         contentResolver = AppVoting
                 .getInstance()
-                .getContext()
+                .getAppComponent()
+                .getContextModule()
                 .getContentResolver();
     }
 
     public List<UserModel> getAllContact (){
-        Cursor cursor = contentResolver.query(ContactsContract.Contacts.CONTENT_URI, null,null,null,null);
+        Cursor cursor = contentResolver.query(ContactsContract.Contacts.CONTENT_URI,
+                        null,
+                        null,
+                        null,
+                        null);
         if (cursor != null){
             while (cursor.moveToNext()){
                 UserModel userModel = new UserModel();
@@ -50,6 +55,7 @@ public class ContactsProvider {
                 userEntities.add(user);
             }
             cursor.close();
+
             UsersDao usersDao = AppVoting.getInstance().getAppDataBase().getUsersDao();
             usersDao.insertListUsers(userEntities);
 

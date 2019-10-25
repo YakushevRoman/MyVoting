@@ -7,13 +7,15 @@ import java.util.Locale;
 /**
  * Provide time and date for Voting Entity
  */
-class TimeProvider {
+public class TimeProvider {
 
     String getCurrentDate(){
-        return new SimpleDateFormat("dd-MM-yyyy", Locale.getDefault()).format(Calendar.getInstance().getTime());
+        return new SimpleDateFormat
+                ("dd-MM-yyyy", Locale.getDefault()).format(Calendar.getInstance().getTime());
     }
 
     String getCurrentTime (){
-        return new SimpleDateFormat("HH:mm:ss", Locale.getDefault()).format(Calendar.getInstance().getTime());
+        return new SimpleDateFormat
+                ("HH:mm:ss", Locale.getDefault()).format(Calendar.getInstance().getTime());
     }
 }

@@ -2,6 +2,7 @@ package com.example.myvoting.app.activities;
 
 import android.Manifest;
 import android.app.Activity;
+import android.content.Context;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
@@ -22,7 +23,6 @@ import com.example.myvoting.R;
 public class MainActivity extends MvpAppCompatActivity {
 
     private static final int REQUEST_CODE_READ_CONTACT = 1;
-    private static boolean READ_CONTACT_GRANTED = false;
     private AppBarConfiguration mAppBarConfiguration;
 
     @Override
@@ -51,8 +51,7 @@ public class MainActivity extends MvpAppCompatActivity {
         NavigationUI.setupActionBarWithNavController(this, navController, mAppBarConfiguration);
         NavigationUI.setupWithNavController(navigationView, navController);
 
-        if (ContextCompat.checkSelfPermission(this,
-                Manifest.permission.READ_CONTACTS)
+        if (ContextCompat.checkSelfPermission(this, Manifest.permission.READ_CONTACTS)
                 != PackageManager.PERMISSION_GRANTED) {
             if (ActivityCompat.shouldShowRequestPermissionRationale(this,
                     Manifest.permission.READ_CONTACTS)) {
@@ -63,6 +62,7 @@ public class MainActivity extends MvpAppCompatActivity {
             }
         } else {
         }
+
     }
     @Override
     public void onRequestPermissionsResult(int requestCode,
