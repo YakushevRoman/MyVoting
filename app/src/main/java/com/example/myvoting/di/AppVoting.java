@@ -9,33 +9,35 @@ import android.content.Context;
 import android.support.annotation.NonNull;
 import android.util.Log;
 
-import com.example.myvoting.database.AppVotingDataBase;
-import com.example.myvoting.database.Daos.VotingDao;
+import com.example.myvoting.data.AppDataBase;
 
 public class AppVoting extends Application {
     private static final String TAG = "TAG";
     @SuppressLint("StaticFieldLeak")
     public static AppVoting instance;
     private Context context ;
-    private AppVotingDataBase appVotingDataBase;
+    private AppDataBase appDataBase;
 
     @Override
     public void onCreate() {
         super.onCreate();
+        Log.d("TAG", "create db");
         instance = this;
         context = getApplicationContext();
-        appVotingDataBase = Room
-                .databaseBuilder(context, AppVotingDataBase.class, "voting.db")
+        appDataBase = Room
+                .databaseBuilder(context, AppDataBase.class, "voting.db")
+                .allowMainThreadQueries()
                 .addCallback(new RoomDatabase.Callback() {
                     @Override
                     public void onCreate(@NonNull SupportSQLiteDatabase db) {
                         super.onCreate(db);
-
+                        Log.d("TAG", "onCreate(db)");
                     }
 
                     @Override
                     public void onOpen(@NonNull SupportSQLiteDatabase db) {
                         super.onOpen(db);
+                        Log.d("TAG", "onOpen(db)");
                     }
                 })
                 .build();
@@ -50,8 +52,8 @@ public class AppVoting extends Application {
         return context;
     }
 
-    public AppVotingDataBase getAppVotingDataBase(){
-        Log.d(TAG, "getAppVotingDataBase: ");
-        return  appVotingDataBase;
+    public AppDataBase getAppDataBase(){
+        return  appDataBase;
     }
+
 }

@@ -35,33 +35,17 @@ public class VotingFragment extends MvpAppCompatFragment implements VotingView {
         Button btnGoodVoting = view.findViewById(R.id.btn_good_voting);
         Button btnTheBestVoting = view.findViewById(R.id.btn_the_best_voting);
 
-        btnTheWorstVoting.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                mVotingPresenter.setValueVoting(VotingProvider.KEY_THE_WORST);
-            }
-        });
+        btnTheWorstVoting.setOnClickListener(v -> mVotingPresenter.setValueVoting(VotingProvider.KEY_THE_WORST));
 
-        btnGoodVoting.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                mVotingPresenter.setValueVoting(VotingProvider.KEY_GOOD);
-            }
-        });
+        btnGoodVoting.setOnClickListener(v -> mVotingPresenter.setValueVoting(VotingProvider.KEY_GOOD));
 
-        btnTheBestVoting.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-                mVotingPresenter.setValueVoting(VotingProvider.KEY_THE_BEST);
-            }
-        });
+        btnTheBestVoting.setOnClickListener(v -> mVotingPresenter.setValueVoting(VotingProvider.KEY_THE_BEST));
 
 
     }
 
     @Override
-    public void showResultVoting(String resultVoting) {
-        Toast.makeText(getContext(), resultVoting, Toast.LENGTH_SHORT).show();
+    public void showResultVoting(int resultVoting) {
+        Toast.makeText(getContext(), String.valueOf(resultVoting), Toast.LENGTH_SHORT).show();
     }
 }

@@ -1,4 +1,4 @@
-package com.example.myvoting.di;
+package com.example.myvoting.di.Components;
 
 
 import android.content.Context;
