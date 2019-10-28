@@ -3,10 +3,10 @@ package com.example.myvoting.data;
 import android.arch.persistence.room.Database;
 import android.arch.persistence.room.RoomDatabase;
 
-import com.example.myvoting.data.Daos.UsersDao;
-import com.example.myvoting.data.Daos.VotingDao;
-import com.example.myvoting.data.Entities.UserEntity;
-import com.example.myvoting.data.Entities.VotingEntity;
+import com.example.myvoting.data.room.Daos.UsersDao;
+import com.example.myvoting.data.room.Daos.VotingDao;
+import com.example.myvoting.data.room.Entities.UserEntity;
+import com.example.myvoting.data.room.Entities.VotingEntity;
 
 @Database(  entities = {VotingEntity.class, UserEntity.class},
             version = 1,

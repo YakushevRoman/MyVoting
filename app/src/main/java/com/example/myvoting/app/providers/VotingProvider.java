@@ -1,20 +1,20 @@
 package com.example.myvoting.app.providers;
-
+/*
+ *
+ */
 import android.util.Log;
-import com.example.myvoting.data.Daos.VotingDao;
-import com.example.myvoting.data.Entities.VotingEntity;
+import com.example.myvoting.app.enums.TagsEnum;
+import com.example.myvoting.data.room.Daos.VotingDao;
+import com.example.myvoting.data.room.Entities.VotingEntity;
 import com.example.myvoting.di.AppVoting;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.disposables.Disposable;
 import io.reactivex.schedulers.Schedulers;
-
+/**
+ *
+ */
 public class VotingProvider {
-    private static final String TAG =  "TAG";
-    //
-    public static final int  KEY_THE_WORST = 1;
-    public static final int  KEY_GOOD = 2;
-    public static final int  KEY_THE_BEST = 3;
-    //
+
     private final VotingDao votingDao;
     private TimeProvider timeProvider;
 
@@ -23,6 +23,7 @@ public class VotingProvider {
                 .getInstance()
                 .getAppDataBase()
                 .getVotingDao();
+
         timeProvider = AppVoting
                 .getInstance()
                 .getAppComponent()
@@ -43,7 +44,7 @@ public class VotingProvider {
                 .subscribe(votingEntities -> {
                     for (VotingEntity entity:
                          votingEntities) {
-                        Log.d(TAG, String.format(
+                        Log.d(TagsEnum.TAG.getmVotingTag(), String.format(
                                 "Id : %s , " +
                                 "Id user : %s , " +
                                 "Answer user : %s, " +

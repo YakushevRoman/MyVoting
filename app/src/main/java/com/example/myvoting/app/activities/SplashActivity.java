@@ -5,7 +5,7 @@ import android.os.Bundle;
 
 import com.example.myvoting.R;
 
-public class SecondActivity extends AppCompatActivity {
+public class SplashActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

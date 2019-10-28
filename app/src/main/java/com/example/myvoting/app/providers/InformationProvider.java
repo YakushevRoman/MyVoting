@@ -1,16 +1,16 @@
 package com.example.myvoting.app.providers;
-
+/*
+ *
+ */
 import com.example.myvoting.R;
 import com.example.myvoting.di.AppVoting;
 import io.reactivex.Single;
-
 /**
  *
  */
 public class InformationProvider {
 
     public Single<String> getInformation (){
-
         String information = AppVoting
                 .getInstance()
                 .getAppComponent()
@@ -20,6 +20,7 @@ public class InformationProvider {
 
         return Single.create(emitter -> emitter.onSuccess(information));
     }
+
 }
 
 

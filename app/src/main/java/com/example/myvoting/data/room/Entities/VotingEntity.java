@@ -1,4 +1,4 @@
-package com.example.myvoting.data.Entities;
+package com.example.myvoting.data.room.Entities;
 
 import android.arch.persistence.room.Entity;
 import android.arch.persistence.room.PrimaryKey;

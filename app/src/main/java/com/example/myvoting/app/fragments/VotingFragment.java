@@ -1,5 +1,7 @@
 package com.example.myvoting.app.fragments;
-
+/*
+ *
+ */
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -11,10 +13,14 @@ import android.widget.Toast;
 import com.arellomobile.mvp.MvpAppCompatFragment;
 import com.arellomobile.mvp.presenter.InjectPresenter;
 import com.example.myvoting.R;
+import com.example.myvoting.app.enums.TagsEnum;
+import com.example.myvoting.app.enums.VotingEnum;
 import com.example.myvoting.app.providers.VotingProvider;
 import com.example.myvoting.app.presenters.VotingPresenter;
 import com.example.myvoting.app.views.VotingView;
-
+/**
+ *
+ */
 public class VotingFragment extends MvpAppCompatFragment implements VotingView {
 
     @InjectPresenter
@@ -34,17 +40,20 @@ public class VotingFragment extends MvpAppCompatFragment implements VotingView {
         Button btnGoodVoting = view.findViewById(R.id.btn_good_voting);
         Button btnTheBestVoting = view.findViewById(R.id.btn_the_best_voting);
 
-        btnTheWorstVoting.setOnClickListener(v -> mVotingPresenter.setValueVoting(VotingProvider.KEY_THE_WORST));
+        btnTheWorstVoting.setOnClickListener(v -> mVotingPresenter
+                .setValueVoting(VotingEnum.KEY_THE_WORST.getValue()));
 
-        btnGoodVoting.setOnClickListener(v -> mVotingPresenter.setValueVoting(VotingProvider.KEY_GOOD));
+        btnGoodVoting.setOnClickListener(v -> mVotingPresenter
+                .setValueVoting(VotingEnum.KEY_GOOD.getValue()));
 
-        btnTheBestVoting.setOnClickListener(v -> mVotingPresenter.setValueVoting(VotingProvider.KEY_THE_BEST));
+        btnTheBestVoting.setOnClickListener(v -> mVotingPresenter
+                .setValueVoting(VotingEnum.KEY_THE_BEST.getValue()));
 
 
     }
 
     @Override
     public void showResultVoting(int resultVoting) {
-        Toast.makeText(getContext(), String.valueOf(resultVoting), Toast.LENGTH_SHORT).show();
+        Toast.makeText(getContext(), TagsEnum.TAG.getmVotingTag(), Toast.LENGTH_SHORT).show();
     }
 }

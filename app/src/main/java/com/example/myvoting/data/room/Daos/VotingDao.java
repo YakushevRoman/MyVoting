@@ -1,11 +1,10 @@
-package com.example.myvoting.data.Daos;
+package com.example.myvoting.data.room.Daos;
 
 import android.arch.persistence.room.Dao;
-import android.arch.persistence.room.Delete;
 import android.arch.persistence.room.Insert;
 import android.arch.persistence.room.Query;
 
-import com.example.myvoting.data.Entities.VotingEntity;
+import com.example.myvoting.data.room.Entities.VotingEntity;
 
 import java.util.List;
 import io.reactivex.Single;

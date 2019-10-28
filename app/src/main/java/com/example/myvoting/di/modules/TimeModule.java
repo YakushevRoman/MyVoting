@@ -10,15 +10,9 @@ import dagger.Provides;
 @Module
 public class TimeModule {
 
-    private TimeProvider timeProvider;
-
-    public TimeModule(TimeProvider timeProvider) {
-        this.timeProvider = timeProvider;
-    }
-
     @Singleton
     @Provides
     TimeProvider getTimeProvider() {
-        return timeProvider;
+        return new TimeProvider();
     }
 }
