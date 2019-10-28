@@ -18,7 +18,7 @@ public class ListViewPresenter extends MvpPresenter<ListUsersView> {
         listUsersAdapter = new ListUsersAdapter();
         listUsersViewModel = getListUsersViewModel();
         startMessage();
-        //setItemsForRecyclerView();
+        setItemsForRecyclerView();
     }
 
     private ListUsersProvider getListUsersViewModel (){

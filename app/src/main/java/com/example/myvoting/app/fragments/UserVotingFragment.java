@@ -25,6 +25,14 @@ public class UserVotingFragment extends MvpAppCompatFragment implements UserVoti
     @InjectPresenter
     UserVotingPresenter mVotingPresenter;
 
+    private Bundle bundle;
+
+    @Override
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        bundle = getArguments();
+    }
+
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -40,13 +48,13 @@ public class UserVotingFragment extends MvpAppCompatFragment implements UserVoti
         Button btnTheBestVoting = view.findViewById(R.id.btn_the_best_voting);
 
         btnTheWorstVoting.setOnClickListener(v -> mVotingPresenter
-                .setValueVoting(AppVotingEnum.KEY_THE_WORST.getValue()));
+                .setValueVoting(AppVotingEnum.KEY_THE_WORST.getValue(), 1));
 
         btnGoodVoting.setOnClickListener(v -> mVotingPresenter
-                .setValueVoting(AppVotingEnum.KEY_GOOD.getValue()));
+                .setValueVoting(AppVotingEnum.KEY_GOOD.getValue(), 2));
 
         btnTheBestVoting.setOnClickListener(v -> mVotingPresenter
-                .setValueVoting(AppVotingEnum.KEY_THE_BEST.getValue()));
+                .setValueVoting(AppVotingEnum.KEY_THE_BEST.getValue(), 3));
 
 
     }

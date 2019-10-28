@@ -23,9 +23,10 @@ public class UserVotingPresenter extends MvpPresenter<UserVotingView> implements
                 .getUserVotingProvider();
     }
 
+
     @Override
-    public void setValueVoting(int key) {
-        userVotingProvider.setUserVotingValue(key);
+    public void setValueVoting(int key, int bundleID) {
+        userVotingProvider.setUserVotingValue(key, bundleID);
         getViewState().showResultVoting(key);
     }
 }

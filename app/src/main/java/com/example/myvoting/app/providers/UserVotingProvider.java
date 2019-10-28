@@ -17,9 +17,10 @@ import io.reactivex.schedulers.Schedulers;
 public class UserVotingProvider implements IUserVotingProvider {
 
     private final VotingDao votingDao;
-    private TimeProviderProvider timeProvider;
+    private final TimeProviderProvider timeProvider;
 
     public UserVotingProvider() {
+
         votingDao = AppVoting
                 .getInstance()
                 .getAppComponent()
@@ -33,9 +34,9 @@ public class UserVotingProvider implements IUserVotingProvider {
     }
 
     @Override
-    public void setUserVotingValue(int value) {
+    public void setUserVotingValue(int value, int id) {
         VotingEntity votingEntity = new VotingEntity();
-        votingEntity.idUser = 2;
+        votingEntity.idUser = id;
         votingEntity.answer = value;
         votingEntity.currentDate = timeProvider.getCurrentDate();
         votingEntity.currentTime = timeProvider.getCurrentTime();
@@ -49,13 +50,11 @@ public class UserVotingProvider implements IUserVotingProvider {
                 .subscribeOn(Schedulers.newThread())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(votingEntities -> {
-                    for (VotingEntity entity:
-                            votingEntities) {
+                    for (VotingEntity entity: votingEntities) {
                         Log.d(TagsEnum.TAG.getVotingTag(), String.format(
                                 "Id : %s , " + "Id user : %s , " + "Answer user : %s, " + "Current time %s, " + "Current date : %s",
                                 entity.uid, entity.idUser, entity.answer, entity.currentTime, entity.currentDate));
                     }
                 });
     }
-
 }

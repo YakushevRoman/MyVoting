@@ -1,30 +1,29 @@
 package com.example.myvoting.app.fragments;
-
+/*
+ *
+ */
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 import android.support.annotation.Nullable;
 import android.support.annotation.NonNull;
-
 import com.arellomobile.mvp.MvpAppCompatFragment;
 import com.arellomobile.mvp.presenter.InjectPresenter;
 import com.example.myvoting.R;
 import com.example.myvoting.app.adapters.ListUsersAdapter;
 import com.example.myvoting.app.models.UserModel;
 import com.example.myvoting.app.presenters.ListViewPresenter;
-
 import com.example.myvoting.app.views.ListUsersView;
-
 import java.util.List;
-
+/**
+ *
+ */
 public class ListUsersFragment extends MvpAppCompatFragment implements ListUsersView {
 
-    private String LOG = "Tag";
     private TextView textView;
     private RecyclerView recyclerViewListUsersFragment;
 
@@ -34,13 +33,12 @@ public class ListUsersFragment extends MvpAppCompatFragment implements ListUsers
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
+        setRetainInstance(true);
     }
 
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
-
         return inflater.inflate(R.layout.list_users_fragment, container, false);
     }
 
@@ -50,7 +48,7 @@ public class ListUsersFragment extends MvpAppCompatFragment implements ListUsers
 
         recyclerViewListUsersFragment = (RecyclerView) view.findViewById(R.id.recycler_list_users);
         textView = view.findViewById(R.id.text_home);
-        textView.setOnClickListener(v -> listViewPresenter.setItemsForRecyclerView());
+        //textView.setOnClickListener(v -> listViewPresenter.setItemsForRecyclerView());
 
     }
 
