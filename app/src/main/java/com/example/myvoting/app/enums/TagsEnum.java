@@ -3,7 +3,7 @@ package com.example.myvoting.app.enums;
  *
  */
 public enum TagsEnum {
-    TAG ("VotingApp");
+    TAG ("VotingApp"), BUNDLE ("Bundle");
 
     private final String mVotingTag;
 

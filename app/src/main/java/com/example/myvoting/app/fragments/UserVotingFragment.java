@@ -31,6 +31,7 @@ public class UserVotingFragment extends MvpAppCompatFragment implements UserVoti
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         bundle = getArguments();
+
     }
 
     @Nullable
