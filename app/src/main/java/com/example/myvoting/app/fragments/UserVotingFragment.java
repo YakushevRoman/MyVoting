@@ -17,6 +17,9 @@ import com.example.myvoting.app.enums.TagsEnum;
 import com.example.myvoting.app.enums.AppVotingEnum;
 import com.example.myvoting.app.presenters.UserVotingPresenter;
 import com.example.myvoting.app.views.UserVotingView;
+
+import java.util.Objects;
+
 /**
  *
  */
@@ -25,13 +28,13 @@ public class UserVotingFragment extends MvpAppCompatFragment implements UserVoti
     @InjectPresenter
     UserVotingPresenter mVotingPresenter;
 
-    private Bundle bundle;
+    private int id;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        bundle = getArguments();
-
+        Bundle bundle = getArguments();
+        id = Objects.requireNonNull(bundle).getInt(TagsEnum.BUNDLE.getVotingTag(),0);
     }
 
     @Nullable
@@ -49,13 +52,13 @@ public class UserVotingFragment extends MvpAppCompatFragment implements UserVoti
         Button btnTheBestVoting = view.findViewById(R.id.btn_the_best_voting);
 
         btnTheWorstVoting.setOnClickListener(v -> mVotingPresenter
-                .setValueVoting(AppVotingEnum.KEY_THE_WORST.getValue(), 1));
+                .setValueVoting(AppVotingEnum.KEY_THE_WORST.getValue(), id));
 
         btnGoodVoting.setOnClickListener(v -> mVotingPresenter
-                .setValueVoting(AppVotingEnum.KEY_GOOD.getValue(), 2));
+                .setValueVoting(AppVotingEnum.KEY_GOOD.getValue(), id));
 
         btnTheBestVoting.setOnClickListener(v -> mVotingPresenter
-                .setValueVoting(AppVotingEnum.KEY_THE_BEST.getValue(), 3));
+                .setValueVoting(AppVotingEnum.KEY_THE_BEST.getValue(), id));
 
 
     }
