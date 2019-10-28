@@ -1,8 +1,8 @@
 package com.example.myvoting.app.activities;
-
+/*
+ *
+ */
 import android.Manifest;
-import android.app.Activity;
-import android.content.Context;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
@@ -19,7 +19,9 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import com.arellomobile.mvp.MvpAppCompatActivity;
 import com.example.myvoting.R;
-
+/**
+ *
+ */
 public class MainActivity extends MvpAppCompatActivity {
 
     private static final int REQUEST_CODE_READ_CONTACT = 1;
@@ -53,20 +55,17 @@ public class MainActivity extends MvpAppCompatActivity {
 
         if (ContextCompat.checkSelfPermission(this, Manifest.permission.READ_CONTACTS)
                 != PackageManager.PERMISSION_GRANTED) {
-            if (ActivityCompat.shouldShowRequestPermissionRationale(this,
+            if (!ActivityCompat.shouldShowRequestPermissionRationale(this,
                     Manifest.permission.READ_CONTACTS)) {
-            } else {
-                ActivityCompat.requestPermissions(this,
-                        new String[]{Manifest.permission.READ_CONTACTS},
-                        REQUEST_CODE_READ_CONTACT);
-            }
-        } else {
+                        ActivityCompat.requestPermissions(this,
+                                new String[]{Manifest.permission.READ_CONTACTS},
+                                REQUEST_CODE_READ_CONTACT);
+                    }
         }
 
     }
     @Override
-    public void onRequestPermissionsResult(int requestCode,
-                                           String[] permissions, int[] grantResults) {
+    public void onRequestPermissionsResult(int requestCode, String[] permissions, int[] grantResults) {
         switch (requestCode) {
             case REQUEST_CODE_READ_CONTACT: {
                 if (grantResults.length > 0

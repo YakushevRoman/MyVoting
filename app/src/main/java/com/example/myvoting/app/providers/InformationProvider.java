@@ -3,14 +3,16 @@ package com.example.myvoting.app.providers;
  *
  */
 import com.example.myvoting.R;
+import com.example.myvoting.app.interafaces.providerInterfaces.IInformationProvider;
 import com.example.myvoting.di.AppVoting;
 import io.reactivex.Single;
 /**
  *
  */
-public class InformationProvider {
+public class InformationProvider implements IInformationProvider {
 
-    public Single<String> getInformation (){
+    @Override
+    public Single<String> getInformation() {
         String information = AppVoting
                 .getInstance()
                 .getAppComponent()
@@ -20,7 +22,6 @@ public class InformationProvider {
 
         return Single.create(emitter -> emitter.onSuccess(information));
     }
-
 }
 
 

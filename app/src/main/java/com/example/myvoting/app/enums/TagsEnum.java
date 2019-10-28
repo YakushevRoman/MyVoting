@@ -1,7 +1,9 @@
 package com.example.myvoting.app.enums;
-
+/**
+ *
+ */
 public enum TagsEnum {
-    TAG ("Voting App");
+    TAG ("VotingApp");
 
     private final String mVotingTag;
 
@@ -9,7 +11,7 @@ public enum TagsEnum {
         this.mVotingTag = mVotingTag;
     }
 
-    public String getmVotingTag() {
+    public String getVotingTag() {
         return mVotingTag;
     }
 }

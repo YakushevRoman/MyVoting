@@ -4,6 +4,9 @@ import android.content.ContentResolver;
 import android.database.Cursor;
 import android.provider.ContactsContract;
 import android.util.Log;
+
+import com.example.myvoting.app.enums.AppVotingEnum;
+import com.example.myvoting.app.enums.TagsEnum;
 import com.example.myvoting.app.models.UserModel;
 import com.example.myvoting.data.room.Daos.UsersDao;
 import com.example.myvoting.data.room.Entities.UserEntity;
@@ -60,6 +63,7 @@ public class ContactsProvider {
 
         UsersDao usersDao = AppVoting
                 .getInstance()
+                .getAppComponent()
                 .getAppDataBase()
                 .getUsersDao();
         usersDao.insertListUsers(userEntities);
@@ -68,6 +72,6 @@ public class ContactsProvider {
                 .getAllUsers()
                 .subscribeOn(Schedulers.newThread())
                 .observeOn(AndroidSchedulers.mainThread())
-                .subscribe( enty -> Log.d(TAG, "setUserModels: "+ enty.size()) );
+                .subscribe( enty -> Log.d(TagsEnum.TAG.getVotingTag(), "setUserModels: "+ enty.size()) );
     }
 }

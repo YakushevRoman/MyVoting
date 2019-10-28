@@ -14,17 +14,16 @@ import com.arellomobile.mvp.MvpAppCompatFragment;
 import com.arellomobile.mvp.presenter.InjectPresenter;
 import com.example.myvoting.R;
 import com.example.myvoting.app.enums.TagsEnum;
-import com.example.myvoting.app.enums.VotingEnum;
-import com.example.myvoting.app.providers.VotingProvider;
-import com.example.myvoting.app.presenters.VotingPresenter;
-import com.example.myvoting.app.views.VotingView;
+import com.example.myvoting.app.enums.AppVotingEnum;
+import com.example.myvoting.app.presenters.UserVotingPresenter;
+import com.example.myvoting.app.views.UserVotingView;
 /**
  *
  */
-public class VotingFragment extends MvpAppCompatFragment implements VotingView {
+public class UserVotingFragment extends MvpAppCompatFragment implements UserVotingView {
 
     @InjectPresenter
-    VotingPresenter mVotingPresenter;
+    UserVotingPresenter mVotingPresenter;
 
     @Nullable
     @Override
@@ -41,19 +40,19 @@ public class VotingFragment extends MvpAppCompatFragment implements VotingView {
         Button btnTheBestVoting = view.findViewById(R.id.btn_the_best_voting);
 
         btnTheWorstVoting.setOnClickListener(v -> mVotingPresenter
-                .setValueVoting(VotingEnum.KEY_THE_WORST.getValue()));
+                .setValueVoting(AppVotingEnum.KEY_THE_WORST.getValue()));
 
         btnGoodVoting.setOnClickListener(v -> mVotingPresenter
-                .setValueVoting(VotingEnum.KEY_GOOD.getValue()));
+                .setValueVoting(AppVotingEnum.KEY_GOOD.getValue()));
 
         btnTheBestVoting.setOnClickListener(v -> mVotingPresenter
-                .setValueVoting(VotingEnum.KEY_THE_BEST.getValue()));
+                .setValueVoting(AppVotingEnum.KEY_THE_BEST.getValue()));
 
 
     }
 
     @Override
     public void showResultVoting(int resultVoting) {
-        Toast.makeText(getContext(), TagsEnum.TAG.getmVotingTag(), Toast.LENGTH_SHORT).show();
+        Toast.makeText(getContext(), TagsEnum.TAG.getVotingTag(), Toast.LENGTH_SHORT).show();
     }
 }

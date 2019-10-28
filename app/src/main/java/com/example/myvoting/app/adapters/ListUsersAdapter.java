@@ -1,4 +1,7 @@
 package com.example.myvoting.app.adapters;
+/*
+ *
+ */
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -9,14 +12,15 @@ import com.example.myvoting.R;
 import com.example.myvoting.app.models.UserModel;
 import java.util.ArrayList;
 import java.util.List;
-
+/**
+ *
+ */
 public class ListUsersAdapter extends RecyclerView.Adapter<ListUsersAdapter.ListUsersHolder>{
 
-    private List <UserModel> listUsers = new ArrayList<>();
-
+    private List <UserModel> listUsers;
 
     public ListUsersAdapter() {
-
+        listUsers = new ArrayList<>();
     }
 
     public void setListUsersAdapter (List<UserModel> newListUsers){

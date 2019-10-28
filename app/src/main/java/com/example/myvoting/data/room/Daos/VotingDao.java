@@ -15,6 +15,9 @@ public interface VotingDao {
     @Query("Select * from VotingEntity")
     Single<List<VotingEntity>> getAllResultVoting ();
 
+    @Query("Select * From VotingEntity Where idUser = :idUser")
+    Single<List<VotingEntity>> getUserResultVoting (int idUser);
+
     @Insert
     void insertVoting (VotingEntity votingEntity);
 }

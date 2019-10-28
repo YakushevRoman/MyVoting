@@ -1,6 +1,6 @@
 package com.example.myvoting.di.modules;
 
-import com.example.myvoting.app.providers.TimeProvider;
+import com.example.myvoting.app.providers.TimeProviderProvider;
 
 import javax.inject.Singleton;
 
@@ -12,7 +12,7 @@ public class TimeModule {
 
     @Singleton
     @Provides
-    TimeProvider getTimeProvider() {
-        return new TimeProvider();
+    TimeProviderProvider getTimeProvider() {
+        return new TimeProviderProvider();
     }
 }

@@ -4,6 +4,7 @@ package com.example.myvoting.app.presenters;
  */
 import com.arellomobile.mvp.InjectViewState;
 import com.arellomobile.mvp.MvpPresenter;
+import com.example.myvoting.app.interafaces.presenterInterfaces.IInformationPresenter;
 import com.example.myvoting.app.providers.InformationProvider;
 import com.example.myvoting.app.views.InformationView;
 import com.example.myvoting.di.AppVoting;
@@ -13,9 +14,8 @@ import io.reactivex.schedulers.Schedulers;
 /**
  *
  */
-
 @InjectViewState
-public class InformationPresenter extends MvpPresenter<InformationView>{
+public class InformationPresenter extends MvpPresenter<InformationView> implements IInformationPresenter {
 
     private InformationProvider informationProvider;
 
@@ -27,13 +27,12 @@ public class InformationPresenter extends MvpPresenter<InformationView>{
         setInformation();
     }
 
-
-    private void setInformation (){
+    @Override
+    public void setInformation (){
         Disposable disposable = informationProvider
-               .getInformation()
-               .subscribeOn(Schedulers.newThread())
-               .observeOn(AndroidSchedulers.mainThread())
-               .subscribe(s -> getViewState().setInformationAboutApp(s));
-        //disposable.dispose();
+                .getInformation()
+                .subscribeOn(Schedulers.newThread())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(s -> getViewState().setInformationAboutApp(s));
    }
 }
