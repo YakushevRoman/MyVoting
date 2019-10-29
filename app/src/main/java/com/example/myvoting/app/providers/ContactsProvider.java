@@ -5,10 +5,9 @@ import android.database.Cursor;
 import android.provider.ContactsContract;
 import android.util.Log;
 
-import com.example.myvoting.app.enums.AppVotingEnum;
 import com.example.myvoting.app.enums.TagsEnum;
 import com.example.myvoting.app.models.UserModel;
-import com.example.myvoting.data.room.Daos.UsersDao;
+import com.example.myvoting.data.room.Daos.IUsersDao;
 import com.example.myvoting.data.room.Entities.UserEntity;
 import com.example.myvoting.di.AppVoting;
 import java.util.ArrayList;
@@ -61,14 +60,14 @@ public class ContactsProvider {
 
     public void setUserModels (List <UserEntity> userEntities){
 
-        UsersDao usersDao = AppVoting
+        IUsersDao IUsersDao = AppVoting
                 .getInstance()
                 .getAppComponent()
                 .getAppDataBase()
                 .getUsersDao();
-        usersDao.insertListUsers(userEntities);
+        IUsersDao.insertListUsers(userEntities);
 
-        Disposable disposable = usersDao
+        Disposable disposable = IUsersDao
                 .getAllUsers()
                 .subscribeOn(Schedulers.newThread())
                 .observeOn(AndroidSchedulers.mainThread())

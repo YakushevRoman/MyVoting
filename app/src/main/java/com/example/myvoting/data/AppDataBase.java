@@ -3,8 +3,8 @@ package com.example.myvoting.data;
 import android.arch.persistence.room.Database;
 import android.arch.persistence.room.RoomDatabase;
 
-import com.example.myvoting.data.room.Daos.UsersDao;
-import com.example.myvoting.data.room.Daos.VotingDao;
+import com.example.myvoting.data.room.Daos.IUsersDao;
+import com.example.myvoting.data.room.Daos.IVotingDao;
 import com.example.myvoting.data.room.Entities.UserEntity;
 import com.example.myvoting.data.room.Entities.VotingEntity;
 
@@ -12,6 +12,6 @@ import com.example.myvoting.data.room.Entities.VotingEntity;
             version = 1,
             exportSchema = false)
 public abstract class AppDataBase extends RoomDatabase {
-    public abstract VotingDao getVotingDao ();
-    public abstract UsersDao getUsersDao();
+    public abstract IVotingDao getVotingDao ();
+    public abstract IUsersDao getUsersDao();
 }

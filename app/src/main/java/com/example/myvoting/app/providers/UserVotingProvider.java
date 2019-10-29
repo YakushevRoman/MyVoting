@@ -5,7 +5,7 @@ package com.example.myvoting.app.providers;
 import android.util.Log;
 import com.example.myvoting.app.enums.TagsEnum;
 import com.example.myvoting.app.interafaces.providerInterfaces.IUserVotingProvider;
-import com.example.myvoting.data.room.Daos.VotingDao;
+import com.example.myvoting.data.room.Daos.IVotingDao;
 import com.example.myvoting.data.room.Entities.VotingEntity;
 import com.example.myvoting.di.AppVoting;
 
@@ -19,12 +19,12 @@ import io.reactivex.schedulers.Schedulers;
 public class UserVotingProvider
         implements IUserVotingProvider {
 
-    private final VotingDao votingDao;
+    private final IVotingDao IVotingDao;
     private final TimeProviderProvider timeProvider;
 
     public UserVotingProvider() {
 
-        votingDao = AppVoting
+        IVotingDao = AppVoting
                 .getInstance()
                 .getAppComponent()
                 .getAppDataBase()
@@ -43,7 +43,7 @@ public class UserVotingProvider
         votingEntity.answer = value;
         votingEntity.currentDate = timeProvider.getCurrentDate();
         votingEntity.currentTime = timeProvider.getCurrentTime();
-        votingDao.insertVoting(votingEntity);
+        IVotingDao.insertVoting(votingEntity);
         showResultQuery();
     }
 
@@ -54,7 +54,7 @@ public class UserVotingProvider
 
 
     private void showResultQuery (){
-        Disposable disposable = votingDao
+        Disposable disposable = IVotingDao
                 .getAllResultVoting()
                 .subscribeOn(Schedulers.newThread())
                 .observeOn(AndroidSchedulers.mainThread())

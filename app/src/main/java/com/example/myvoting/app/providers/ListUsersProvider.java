@@ -4,7 +4,6 @@ package com.example.myvoting.app.providers;
  */
 import com.example.myvoting.R;
 import com.example.myvoting.app.models.UserModel;
-import com.example.myvoting.data.room.Daos.UsersDao;
 import com.example.myvoting.di.AppVoting;
 import java.util.List;
 import io.reactivex.Single;
@@ -12,7 +11,7 @@ import io.reactivex.Single;
  *  data for list users view fragment
  */
 public class ListUsersProvider {
-    //private UsersDao usersDao;
+    //private IUsersDao usersDao;
 
     public ListUsersProvider() {
         /*usersDao = AppVoting

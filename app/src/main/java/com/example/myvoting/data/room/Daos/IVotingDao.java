@@ -10,7 +10,7 @@ import java.util.List;
 import io.reactivex.Single;
 
 @Dao
-public interface VotingDao {
+public interface IVotingDao {
 
     @Query("Select * from VotingEntity")
     Single<List<VotingEntity>> getAllResultVoting ();

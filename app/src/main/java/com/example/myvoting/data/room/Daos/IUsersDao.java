@@ -11,7 +11,7 @@ import java.util.List;
 import io.reactivex.Single;
 
 @Dao
-public interface UsersDao {
+public interface IUsersDao {
 
     @Query("Select * From UserEntity")
     Single <List<UserEntity>> getAllUsers ();
