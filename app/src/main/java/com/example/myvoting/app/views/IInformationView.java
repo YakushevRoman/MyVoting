@@ -6,7 +6,7 @@ import com.arellomobile.mvp.MvpView;
 /**
  *
  */
-public interface InformationView
+public interface IInformationView
         extends MvpView {
 
     void setInformationAboutApp(String information);

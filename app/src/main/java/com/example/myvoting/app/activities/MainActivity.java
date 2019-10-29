@@ -3,6 +3,7 @@ package com.example.myvoting.app.activities;
  *
  */
 import android.Manifest;
+import android.app.ActivityManager;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
@@ -16,7 +17,10 @@ import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.widget.Toolbar;
+import android.text.Spannable;
 import android.view.Menu;
+import android.view.animation.AlphaAnimation;
+
 import com.arellomobile.mvp.MvpAppCompatActivity;
 import com.example.myvoting.R;
 /**

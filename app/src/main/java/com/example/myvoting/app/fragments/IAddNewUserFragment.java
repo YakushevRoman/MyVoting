@@ -6,11 +6,8 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
-import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -22,11 +19,12 @@ import com.arellomobile.mvp.presenter.InjectPresenter;
 import com.example.myvoting.R;
 import com.example.myvoting.app.models.UserModel;
 import com.example.myvoting.app.presenters.AddNewUserPresenter;
-import com.example.myvoting.app.views.AddNewUserView;
+import com.example.myvoting.app.views.IAddNewUserView;
+
 /**
  *
  */
-public class AddNewUserFragment extends MvpAppCompatFragment implements AddNewUserView {
+public class IAddNewUserFragment extends MvpAppCompatFragment implements IAddNewUserView {
 
     @InjectPresenter
     AddNewUserPresenter addNewUserPresenter;
@@ -63,13 +61,13 @@ public class AddNewUserFragment extends MvpAppCompatFragment implements AddNewUs
             FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
             Fragment fragmentContainer = fragmentManager.findFragmentById(R.id.nav_host_fragment);
             if (fragmentContainer == null) {
-                Fragment fragment = new UserVotingFragment();
+                Fragment fragment = new IUserVotingFragment();
                 fragmentTransaction
                         .add(R.id.nav_host_fragment, fragment)
                         .addToBackStack(null)
                         .commit();
             } else {
-                Fragment fragment = new UserVotingFragment();
+                Fragment fragment = new IUserVotingFragment();
                 fragmentTransaction
                         .replace(R.id.nav_host_fragment, fragment)
                         .addToBackStack(null)

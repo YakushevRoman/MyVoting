@@ -7,25 +7,25 @@
 
     <fragment
         android:id="@+id/nav_list_users"
-        android:name="com.example.myvoting.app.fragments.ListUsersFragment"
+        android:name="com.example.myvoting.app.fragments.IListUsersFragment"
         android:label="@string/menu_list_users"
         tools:layout="@layout/list_users_fragment" />
 
     <fragment
         android:id="@+id/nav_voting"
-        android:name="com.example.myvoting.app.fragments.UserVotingFragment"
+        android:name="com.example.myvoting.app.fragments.IUserVotingFragment"
         android:label="@string/menu_voting"
         tools:layout="@layout/fragment_gallery" />
 
     <fragment
         android:id="@+id/nav_add_new_user"
-        android:name="com.example.myvoting.app.fragments.AddNewUserFragment"
+        android:name="com.example.myvoting.app.fragments.IAddNewUserFragment"
         android:label="@string/menu_add_new_user"
         tools:layout="@layout/fragment_slideshow" />
 
     <fragment
         android:id="@+id/nav_information"
-        android:name="com.example.myvoting.app.fragments.InformationFragment"
+        android:name="com.example.myvoting.app.fragments.IInformationFragment"
         android:label="@string/menu_information"
         tools:layout="@layout/fragment_share" />
 

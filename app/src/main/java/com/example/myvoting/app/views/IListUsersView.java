@@ -6,7 +6,7 @@ import com.example.myvoting.app.models.UserModel;
 
 import java.util.List;
 
-public interface ListUsersView
+public interface IListUsersView
         extends MvpView {
 
     void setItemsForRecyclerView (List<UserModel> list, ListUsersAdapter listUsersAdapter);

@@ -4,11 +4,16 @@ package com.example.myvoting.app.adapters;
  */
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.Toast;
+
 import com.example.myvoting.R;
+import com.example.myvoting.app.enums.TagsEnum;
+import com.example.myvoting.app.interafaces.IRecyclerView;
 import com.example.myvoting.app.models.UserModel;
 import java.util.ArrayList;
 import java.util.List;
@@ -19,9 +24,14 @@ public class ListUsersAdapter
         extends RecyclerView.Adapter<ListUsersAdapter.ListUsersHolder>{
 
     private List <UserModel> listUsers;
+    private IRecyclerView iRecyclerView;
 
     public ListUsersAdapter() {
         listUsers = new ArrayList<>();
+    }
+
+    public void addIRecyclerView (IRecyclerView iRecyclerView){
+        this.iRecyclerView = iRecyclerView;
     }
 
     public void setListUsersAdapter (List<UserModel> newListUsers){
@@ -40,7 +50,7 @@ public class ListUsersAdapter
 
     @Override
     public void onBindViewHolder(@NonNull ListUsersHolder listUsersHolder, int i) {
-        listUsersHolder.bindListUsersHolder(listUsers.get(i));
+        listUsersHolder.bindListUsersHolder(listUsers.get(i), iRecyclerView);
     }
 
     @Override
@@ -49,18 +59,17 @@ public class ListUsersAdapter
     }
 
     class ListUsersHolder
-            extends RecyclerView.ViewHolder{
+            extends RecyclerView.ViewHolder {
 
         private Button buttonUser;
         ListUsersHolder(@NonNull View itemView) {
             super(itemView);
-
             buttonUser = itemView.findViewById(R.id.button_list_users_recycler);
         }
 
-        void bindListUsersHolder(UserModel user){
+        void bindListUsersHolder(UserModel user, IRecyclerView iRecyclerView){
             buttonUser.setText(user.getNameUser());
+            buttonUser.setOnClickListener( v -> iRecyclerView.showVotingFragment(user.getNameUser()));
         }
-
     }
 }

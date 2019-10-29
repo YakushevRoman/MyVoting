@@ -6,7 +6,7 @@ import com.arellomobile.mvp.InjectViewState;
 import com.arellomobile.mvp.MvpPresenter;
 import com.example.myvoting.app.interafaces.presenterInterfaces.IInformationPresenter;
 import com.example.myvoting.app.providers.InformationProvider;
-import com.example.myvoting.app.views.InformationView;
+import com.example.myvoting.app.views.IInformationView;
 import com.example.myvoting.di.AppVoting;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.disposables.Disposable;
@@ -16,7 +16,7 @@ import io.reactivex.schedulers.Schedulers;
  */
 @InjectViewState
 public class InformationPresenter
-        extends MvpPresenter<InformationView>
+        extends MvpPresenter<IInformationView>
         implements IInformationPresenter {
 
     private InformationProvider informationProvider;

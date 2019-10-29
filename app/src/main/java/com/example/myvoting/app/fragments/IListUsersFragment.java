@@ -5,6 +5,7 @@ package com.example.myvoting.app.fragments;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -15,16 +16,18 @@ import com.arellomobile.mvp.MvpAppCompatFragment;
 import com.arellomobile.mvp.presenter.InjectPresenter;
 import com.example.myvoting.R;
 import com.example.myvoting.app.adapters.ListUsersAdapter;
+import com.example.myvoting.app.enums.TagsEnum;
+import com.example.myvoting.app.interafaces.IRecyclerView;
 import com.example.myvoting.app.models.UserModel;
 import com.example.myvoting.app.presenters.ListViewPresenter;
-import com.example.myvoting.app.views.ListUsersView;
+import com.example.myvoting.app.views.IListUsersView;
 import java.util.List;
 /**
  *
  */
-public class ListUsersFragment
+public class IListUsersFragment
         extends MvpAppCompatFragment
-        implements ListUsersView {
+        implements IListUsersView{
 
     private TextView textView;
     private RecyclerView recyclerViewListUsersFragment;
@@ -57,6 +60,9 @@ public class ListUsersFragment
     public void setItemsForRecyclerView(List<UserModel> list, ListUsersAdapter listUsersAdapter) {
         recyclerViewListUsersFragment.setLayoutManager(new LinearLayoutManager(this.getContext()));
         listUsersAdapter.setListUsersAdapter(list);
+        listUsersAdapter.addIRecyclerView(userName -> {
+            Log.d(TagsEnum.TAG.getVotingTag(), userName);
+        });
         recyclerViewListUsersFragment.setAdapter(listUsersAdapter);
     }
 

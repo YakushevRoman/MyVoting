@@ -14,13 +14,14 @@ import com.arellomobile.mvp.presenter.InjectPresenter;
 import com.arellomobile.mvp.presenter.PresenterType;
 import com.example.myvoting.R;
 import com.example.myvoting.app.presenters.InformationPresenter;
-import com.example.myvoting.app.views.InformationView;
+import com.example.myvoting.app.views.IInformationView;
+
 /**
  *
  */
-public class InformationFragment
+public class IInformationFragment
         extends MvpAppCompatFragment
-        implements InformationView {
+        implements IInformationView {
 
     @InjectPresenter (type = PresenterType.LOCAL)
     InformationPresenter informationPresenter;

@@ -4,14 +4,14 @@ import com.arellomobile.mvp.InjectViewState;
 import com.arellomobile.mvp.MvpPresenter;
 import com.example.myvoting.app.adapters.ListUsersAdapter;
 import com.example.myvoting.app.providers.ListUsersProvider;
-import com.example.myvoting.app.views.ListUsersView;
+import com.example.myvoting.app.views.IListUsersView;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.disposables.Disposable;
 import io.reactivex.schedulers.Schedulers;
 
 @InjectViewState
 public class ListViewPresenter
-        extends MvpPresenter<ListUsersView> {
+        extends MvpPresenter<IListUsersView> {
 
     private ListUsersProvider listUsersViewModel;
     private ListUsersAdapter listUsersAdapter;

@@ -9,10 +9,9 @@ import com.arellomobile.mvp.MvpPresenter;
 import com.example.myvoting.R;
 import com.example.myvoting.app.interafaces.presenterInterfaces.IUserVotingPresenter;
 import com.example.myvoting.app.providers.UserVotingProvider;
-import com.example.myvoting.app.views.UserVotingView;
+import com.example.myvoting.app.views.IUserVotingView;
 import com.example.myvoting.di.AppVoting;
 
-import io.reactivex.Scheduler;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.disposables.Disposable;
 import io.reactivex.schedulers.Schedulers;
@@ -22,7 +21,7 @@ import io.reactivex.schedulers.Schedulers;
  */
 @InjectViewState
 public class UserVotingPresenter
-        extends MvpPresenter<UserVotingView>
+        extends MvpPresenter<IUserVotingView>
         implements IUserVotingPresenter {
 
     private UserVotingProvider userVotingProvider;

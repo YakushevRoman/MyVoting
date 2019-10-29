@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.FragmentManager;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -15,20 +16,19 @@ import android.widget.Toast;
 import com.arellomobile.mvp.MvpAppCompatFragment;
 import com.arellomobile.mvp.presenter.InjectPresenter;
 import com.example.myvoting.R;
-import com.example.myvoting.app.enums.TagsEnum;
 import com.example.myvoting.app.enums.AppVotingEnum;
+import com.example.myvoting.app.enums.TagsEnum;
+import com.example.myvoting.app.interafaces.IRecyclerView;
 import com.example.myvoting.app.presenters.UserVotingPresenter;
-import com.example.myvoting.app.views.UserVotingView;
+import com.example.myvoting.app.views.IUserVotingView;
 import com.example.myvoting.di.AppVoting;
-
-import java.util.Objects;
 
 /**
  *
  */
-public class UserVotingFragment
+public class IUserVotingFragment
         extends MvpAppCompatFragment
-        implements UserVotingView {
+        implements IUserVotingView{
 
     @InjectPresenter
     UserVotingPresenter mVotingPresenter;
@@ -68,28 +68,41 @@ public class UserVotingFragment
         /*btnTheWorstVoting
                 .setOnClickListener(v -> mVotingPresenter.setValueVoting(AppVotingEnum.KEY_THE_WORST.getValue(), id);
         FragmentManager fragmentManager = this.getFragmentManager(););*/
-        btnTheWorstVoting.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                mVotingPresenter.setValueVoting(AppVotingEnum.KEY_THE_WORST.getValue(), id);
-                FragmentManager fragmentManager = getFragmentManager();
-                assert fragmentManager != null;
-                fragmentManager.popBackStackImmediate();
-            }
+        btnTheWorstVoting.setOnClickListener(v -> {
+            mVotingPresenter.setValueVoting(AppVotingEnum.KEY_THE_WORST.getValue(), id);
+            FragmentManager fragmentManager = getFragmentManager();
+            assert fragmentManager != null;
+            fragmentManager.popBackStackImmediate();
         });
 
-        btnGoodVoting
-                .setOnClickListener(v -> mVotingPresenter
-                        .setValueVoting(AppVotingEnum.KEY_GOOD.getValue(), id));
 
-        btnTheBestVoting
+        /*btnGoodVoting
                 .setOnClickListener(v -> mVotingPresenter
-                        .setValueVoting(AppVotingEnum.KEY_THE_BEST.getValue(), id));
+                        .setValueVoting(AppVotingEnum.KEY_GOOD.getValue(), id));*/
+
+        btnGoodVoting.setOnClickListener(v -> {
+            mVotingPresenter.setValueVoting(AppVotingEnum.KEY_GOOD.getValue(), id);
+            FragmentManager fragmentManager = getFragmentManager();
+            assert fragmentManager != null;
+            fragmentManager.popBackStackImmediate();
+        });
+
+        /*btnTheBestVoting
+                .setOnClickListener(v -> mVotingPresenter
+                        .setValueVoting(AppVotingEnum.KEY_THE_BEST.getValue(), id));*/
+
+        btnTheBestVoting.setOnClickListener(v -> {
+            mVotingPresenter.setValueVoting(AppVotingEnum.KEY_THE_BEST.getValue(), id);
+            FragmentManager fragmentManager = getFragmentManager();
+            assert fragmentManager != null;
+            fragmentManager.popBackStackImmediate();
+        });
     }
 
     @Override
     public void showResultVoting(String resultVoting) {
         Toast.makeText(getContext(), resultVoting, Toast.LENGTH_SHORT).show();
     }
-
 }
+
+
