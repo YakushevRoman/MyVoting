@@ -10,7 +10,8 @@ import io.reactivex.disposables.Disposable;
 import io.reactivex.schedulers.Schedulers;
 
 @InjectViewState
-public class ListViewPresenter extends MvpPresenter<ListUsersView> {
+public class ListViewPresenter
+        extends MvpPresenter<ListUsersView> {
 
     private ListUsersProvider listUsersViewModel;
     private ListUsersAdapter listUsersAdapter;

@@ -26,9 +26,11 @@ import dagger.Component;
         RoomModule.class})
 
 public interface AppComponent {
+
     Context getContextModule();
     TimeProviderProvider getTimeProvider();
     InformationProvider getInformationProvider();
     UserVotingProvider getUserVotingProvider();
     AppDataBase getAppDataBase();
+
 }

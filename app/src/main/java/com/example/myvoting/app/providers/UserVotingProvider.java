@@ -8,13 +8,16 @@ import com.example.myvoting.app.interafaces.providerInterfaces.IUserVotingProvid
 import com.example.myvoting.data.room.Daos.VotingDao;
 import com.example.myvoting.data.room.Entities.VotingEntity;
 import com.example.myvoting.di.AppVoting;
+
+import io.reactivex.Single;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.disposables.Disposable;
 import io.reactivex.schedulers.Schedulers;
 /**
  *
  */
-public class UserVotingProvider implements IUserVotingProvider {
+public class UserVotingProvider
+        implements IUserVotingProvider {
 
     private final VotingDao votingDao;
     private final TimeProviderProvider timeProvider;
@@ -34,7 +37,7 @@ public class UserVotingProvider implements IUserVotingProvider {
     }
 
     @Override
-    public void setUserVotingValue(int value, int id) {
+    public void setValueUserVoting(int value, int id) {
         VotingEntity votingEntity = new VotingEntity();
         votingEntity.idUser = id;
         votingEntity.answer = value;
@@ -43,6 +46,12 @@ public class UserVotingProvider implements IUserVotingProvider {
         votingDao.insertVoting(votingEntity);
         showResultQuery();
     }
+
+    @Override
+    public Single<String> setToastTextUserVoting(String text) {
+        return Single.just(text);
+    }
+
 
     private void showResultQuery (){
         Disposable disposable = votingDao
@@ -56,5 +65,6 @@ public class UserVotingProvider implements IUserVotingProvider {
                                 entity.uid, entity.idUser, entity.answer, entity.currentTime, entity.currentDate));
                     }
                 });
+        disposable.isDisposed();
     }
 }

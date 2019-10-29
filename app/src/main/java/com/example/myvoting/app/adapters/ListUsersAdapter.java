@@ -15,7 +15,8 @@ import java.util.List;
 /**
  *
  */
-public class ListUsersAdapter extends RecyclerView.Adapter<ListUsersAdapter.ListUsersHolder>{
+public class ListUsersAdapter
+        extends RecyclerView.Adapter<ListUsersAdapter.ListUsersHolder>{
 
     private List <UserModel> listUsers;
 
@@ -47,7 +48,9 @@ public class ListUsersAdapter extends RecyclerView.Adapter<ListUsersAdapter.List
         return listUsers.size();
     }
 
-    class ListUsersHolder extends RecyclerView.ViewHolder{
+    class ListUsersHolder
+            extends RecyclerView.ViewHolder{
+
         private Button buttonUser;
         ListUsersHolder(@NonNull View itemView) {
             super(itemView);

@@ -22,7 +22,8 @@ import com.example.myvoting.R;
 /**
  *
  */
-public class MainActivity extends MvpAppCompatActivity {
+public class MainActivity
+        extends MvpAppCompatActivity {
 
     private static final int REQUEST_CODE_READ_CONTACT = 1;
     private AppBarConfiguration mAppBarConfiguration;
@@ -52,6 +53,7 @@ public class MainActivity extends MvpAppCompatActivity {
 
         NavigationUI.setupActionBarWithNavController(this, navController, mAppBarConfiguration);
         NavigationUI.setupWithNavController(navigationView, navController);
+        //navigationView.setNavigationItemSelectedListener();
 
         if (ContextCompat.checkSelfPermission(this, Manifest.permission.READ_CONTACTS)
                 != PackageManager.PERMISSION_GRANTED) {

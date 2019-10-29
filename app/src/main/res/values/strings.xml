@@ -22,6 +22,7 @@
     <string name="communicate">Communicate</string>
     <string name="text_list_users_fragment">This is home fragment</string>
     <string name="image_for_information_fragment">Image for information fragment</string>
+    <string name="text_for_user_voting">Thanks for your vote</string>
 
     <string name="information">Hello, my friend!!! \n I use some libraries in this app. \n
         RxJava/RxAndroid \n Moxy \n Room \n Retrofit2  </string>

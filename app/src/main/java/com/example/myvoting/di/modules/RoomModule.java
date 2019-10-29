@@ -14,20 +14,18 @@ import javax.inject.Singleton;
 import dagger.Module;
 import dagger.Provides;
 
-@Module
+@Module (includes = ContextModule.class)
 public class RoomModule {
 
-    private Context context;
     private String nameDataBase;
 
-    public RoomModule(Context context, String nameDataBase) {
-        this.context = context;
+    public RoomModule(String nameDataBase) {
         this.nameDataBase = nameDataBase;
     }
 
     @Provides
     @Singleton
-    AppDataBase getAppDataBase (){
+    AppDataBase getAppDataBase (Context context){
         return Room
                 .databaseBuilder(context, AppDataBase.class, nameDataBase)
                 .allowMainThreadQueries()

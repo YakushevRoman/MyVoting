@@ -7,7 +7,8 @@ import com.example.myvoting.app.models.UserModel;
 import com.example.myvoting.app.views.AddNewUserView;
 
 @InjectViewState
-public class AddNewUserPresenter  extends MvpPresenter <AddNewUserView> {
+public class AddNewUserPresenter
+        extends MvpPresenter <AddNewUserView> {
 
     public AddNewUserPresenter() {
     }

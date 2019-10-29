@@ -9,7 +9,8 @@ import io.reactivex.Single;
 /**
  *
  */
-public class InformationProvider implements IInformationProvider {
+public class InformationProvider
+        implements IInformationProvider {
 
     @Override
     public Single<String> getInformation() {
@@ -19,9 +20,9 @@ public class InformationProvider implements IInformationProvider {
                 .getContextModule()
                 .getResources()
                 .getString(R.string.information);
-
         return Single.create(emitter -> emitter.onSuccess(information));
     }
+
 }
 
 

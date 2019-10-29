@@ -22,7 +22,9 @@ import java.util.List;
 /**
  *
  */
-public class ListUsersFragment extends MvpAppCompatFragment implements ListUsersView {
+public class ListUsersFragment
+        extends MvpAppCompatFragment
+        implements ListUsersView {
 
     private TextView textView;
     private RecyclerView recyclerViewListUsersFragment;
@@ -48,8 +50,6 @@ public class ListUsersFragment extends MvpAppCompatFragment implements ListUsers
 
         recyclerViewListUsersFragment = (RecyclerView) view.findViewById(R.id.recycler_list_users);
         textView = view.findViewById(R.id.text_home);
-        //textView.setOnClickListener(v -> listViewPresenter.setItemsForRecyclerView());
-
     }
 
 

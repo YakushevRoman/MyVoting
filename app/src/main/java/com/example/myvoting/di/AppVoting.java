@@ -28,7 +28,7 @@ public class AppVoting extends Application {
         appComponent = DaggerAppComponent
                 .builder()
                 .contextModule(new ContextModule(getApplicationContext()))
-                .roomModule(new RoomModule(getApplicationContext(),NAME_DATABASE))
+                .roomModule(new RoomModule(NAME_DATABASE))
                 .build();
     }
 

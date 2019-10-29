@@ -18,7 +18,9 @@ import com.example.myvoting.app.views.InformationView;
 /**
  *
  */
-public class InformationFragment extends MvpAppCompatFragment implements InformationView {
+public class InformationFragment
+        extends MvpAppCompatFragment
+        implements InformationView {
 
     @InjectPresenter (type = PresenterType.LOCAL)
     InformationPresenter informationPresenter;

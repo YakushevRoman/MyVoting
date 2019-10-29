@@ -12,14 +12,14 @@ import io.reactivex.Single;
  *  data for list users view fragment
  */
 public class ListUsersProvider {
-    private UsersDao usersDao;
+    //private UsersDao usersDao;
 
     public ListUsersProvider() {
-        usersDao = AppVoting
+        /*usersDao = AppVoting
                 .getInstance()
                 .getAppComponent()
                 .getAppDataBase()
-                .getUsersDao();
+                .getUsersDao();*/
     }
 
     public Single <String> getStringForListUsers (){

@@ -15,7 +15,9 @@ import io.reactivex.schedulers.Schedulers;
  *
  */
 @InjectViewState
-public class InformationPresenter extends MvpPresenter<InformationView> implements IInformationPresenter {
+public class InformationPresenter
+        extends MvpPresenter<InformationView>
+        implements IInformationPresenter {
 
     private InformationProvider informationProvider;
 
@@ -35,4 +37,5 @@ public class InformationPresenter extends MvpPresenter<InformationView> implemen
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(s -> getViewState().setInformationAboutApp(s));
    }
+
 }

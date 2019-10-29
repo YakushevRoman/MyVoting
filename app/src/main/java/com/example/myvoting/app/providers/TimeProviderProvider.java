@@ -9,7 +9,8 @@ import java.util.Locale;
 /**
  * Provide time and date for Voting Entity
  */
-public class TimeProviderProvider implements ICurrentTimeProvider {
+public class TimeProviderProvider
+        implements ICurrentTimeProvider {
 
     @Override
     public String getCurrentDate() {
