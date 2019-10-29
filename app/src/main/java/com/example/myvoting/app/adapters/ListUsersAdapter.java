@@ -4,16 +4,13 @@ package com.example.myvoting.app.adapters;
  */
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.Toast;
 
 import com.example.myvoting.R;
-import com.example.myvoting.app.enums.TagsEnum;
-import com.example.myvoting.app.interafaces.IRecyclerView;
+import com.example.myvoting.app.interafaces.fragmentInterfaces.IRecyclerView;
 import com.example.myvoting.app.models.UserModel;
 import java.util.ArrayList;
 import java.util.List;

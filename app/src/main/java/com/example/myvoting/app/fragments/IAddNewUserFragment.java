@@ -57,7 +57,7 @@ public class IAddNewUserFragment extends MvpAppCompatFragment implements IAddNew
             userModel.setNameUser(userName);
             addNewUserPresenter.showNewUser(userModel);
 
-            FragmentManager fragmentManager = this.getFragmentManager();
+            /*FragmentManager fragmentManager = this.getFragmentManager();
             FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
             Fragment fragmentContainer = fragmentManager.findFragmentById(R.id.nav_host_fragment);
             if (fragmentContainer == null) {
@@ -72,13 +72,8 @@ public class IAddNewUserFragment extends MvpAppCompatFragment implements IAddNew
                         .replace(R.id.nav_host_fragment, fragment)
                         .addToBackStack(null)
                         .commit();
-            }
-
-
+            }*/
         });
-
-
-
     }
 
     @Override

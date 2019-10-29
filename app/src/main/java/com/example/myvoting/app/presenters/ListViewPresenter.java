@@ -41,5 +41,4 @@ public class ListViewPresenter
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(userModels -> getViewState().setItemsForRecyclerView(userModels, listUsersAdapter));
     }
-
 }

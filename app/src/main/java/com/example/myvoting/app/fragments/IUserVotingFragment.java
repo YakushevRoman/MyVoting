@@ -18,7 +18,6 @@ import com.arellomobile.mvp.presenter.InjectPresenter;
 import com.example.myvoting.R;
 import com.example.myvoting.app.enums.AppVotingEnum;
 import com.example.myvoting.app.enums.TagsEnum;
-import com.example.myvoting.app.interafaces.IRecyclerView;
 import com.example.myvoting.app.presenters.UserVotingPresenter;
 import com.example.myvoting.app.views.IUserVotingView;
 import com.example.myvoting.di.AppVoting;
@@ -45,10 +44,11 @@ public class IUserVotingFragment
                 .getContextModule();
 
         /*Bundle bundle = getArguments();
-        id = Objects
-                .requireNonNull(bundle)
-                .getInt(TagsEnum.BUNDLE.getVotingTag(),4);*/
+        assert bundle != null;
+        Log.d(TagsEnum.TAG.getVotingTag(), "IUserVotingFragment" + bundle.getString(TagsEnum.BUNDLE.getVotingTag(),""));
+    */
     }
+
 
     @Nullable
     @Override
@@ -65,9 +65,6 @@ public class IUserVotingFragment
         Button btnGoodVoting = view.findViewById(R.id.btn_good_voting);
         Button btnTheBestVoting = view.findViewById(R.id.btn_the_best_voting);
 
-        /*btnTheWorstVoting
-                .setOnClickListener(v -> mVotingPresenter.setValueVoting(AppVotingEnum.KEY_THE_WORST.getValue(), id);
-        FragmentManager fragmentManager = this.getFragmentManager(););*/
         btnTheWorstVoting.setOnClickListener(v -> {
             mVotingPresenter.setValueVoting(AppVotingEnum.KEY_THE_WORST.getValue(), id);
             FragmentManager fragmentManager = getFragmentManager();
@@ -75,21 +72,12 @@ public class IUserVotingFragment
             fragmentManager.popBackStackImmediate();
         });
 
-
-        /*btnGoodVoting
-                .setOnClickListener(v -> mVotingPresenter
-                        .setValueVoting(AppVotingEnum.KEY_GOOD.getValue(), id));*/
-
         btnGoodVoting.setOnClickListener(v -> {
             mVotingPresenter.setValueVoting(AppVotingEnum.KEY_GOOD.getValue(), id);
             FragmentManager fragmentManager = getFragmentManager();
             assert fragmentManager != null;
             fragmentManager.popBackStackImmediate();
         });
-
-        /*btnTheBestVoting
-                .setOnClickListener(v -> mVotingPresenter
-                        .setValueVoting(AppVotingEnum.KEY_THE_BEST.getValue(), id));*/
 
         btnTheBestVoting.setOnClickListener(v -> {
             mVotingPresenter.setValueVoting(AppVotingEnum.KEY_THE_BEST.getValue(), id);

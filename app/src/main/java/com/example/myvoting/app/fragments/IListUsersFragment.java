@@ -3,6 +3,9 @@ package com.example.myvoting.app.fragments;
  *
  */
 import android.os.Bundle;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
@@ -17,7 +20,7 @@ import com.arellomobile.mvp.presenter.InjectPresenter;
 import com.example.myvoting.R;
 import com.example.myvoting.app.adapters.ListUsersAdapter;
 import com.example.myvoting.app.enums.TagsEnum;
-import com.example.myvoting.app.interafaces.IRecyclerView;
+import com.example.myvoting.app.interafaces.fragmentInterfaces.IShowNewFragment;
 import com.example.myvoting.app.models.UserModel;
 import com.example.myvoting.app.presenters.ListViewPresenter;
 import com.example.myvoting.app.views.IListUsersView;
@@ -27,7 +30,7 @@ import java.util.List;
  */
 public class IListUsersFragment
         extends MvpAppCompatFragment
-        implements IListUsersView{
+        implements IListUsersView, IShowNewFragment {
 
     private TextView textView;
     private RecyclerView recyclerViewListUsersFragment;
@@ -61,7 +64,8 @@ public class IListUsersFragment
         recyclerViewListUsersFragment.setLayoutManager(new LinearLayoutManager(this.getContext()));
         listUsersAdapter.setListUsersAdapter(list);
         listUsersAdapter.addIRecyclerView(userName -> {
-            Log.d(TagsEnum.TAG.getVotingTag(), userName);
+            showVotingFragment(userName);
+            Log.d(TagsEnum.TAG.getVotingTag(), "setItemsForRecyclerView" + userName);
         });
         recyclerViewListUsersFragment.setAdapter(listUsersAdapter);
     }
@@ -71,4 +75,28 @@ public class IListUsersFragment
         textView.setText(startText);
     }
 
+    @Override
+    public void showVotingFragment(String name) {
+        FragmentManager fragmentManager = this.getFragmentManager();
+        Bundle bundle = new Bundle();
+        bundle.putString(TagsEnum.BUNDLE.getVotingTag(), name);
+        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+        Fragment fragmentContainer = fragmentManager.findFragmentById(R.id.nav_host_fragment);
+        if (fragmentContainer == null) {
+            Fragment fragment = new IUserVotingFragment();
+            fragment.setArguments(bundle);
+            fragmentTransaction
+                    .add(R.id.nav_host_fragment, fragment)
+                    .addToBackStack(null)
+                    .commit();
+
+        } else {
+            Fragment fragment = new IUserVotingFragment();
+            fragment.setArguments(bundle);
+            fragmentTransaction
+                    .replace(R.id.nav_host_fragment, fragment)
+                    .addToBackStack(null)
+                    .commit();
+        }
+    }
 }
