@@ -23,4 +23,9 @@ public class ExampleInstrumentedTest {
 
         assertEquals("com.example.myvoting", appContext.getPackageName());
     }
+
+    @Test
+    public void use (){
+
+    }
 }

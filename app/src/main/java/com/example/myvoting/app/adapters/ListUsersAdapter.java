@@ -11,6 +11,7 @@ import android.widget.Button;
 
 import com.example.myvoting.R;
 import com.example.myvoting.app.interafaces.fragmentInterfaces.IRecyclerView;
+import com.example.myvoting.app.interafaces.recyclerInterfaces.IRecycler;
 import com.example.myvoting.app.models.UserModel;
 import java.util.ArrayList;
 import java.util.List;
@@ -18,7 +19,8 @@ import java.util.List;
  *
  */
 public class ListUsersAdapter
-        extends RecyclerView.Adapter<ListUsersAdapter.ListUsersHolder>{
+        extends RecyclerView.Adapter<ListUsersAdapter.ListUsersHolder>
+        implements IRecycler {
 
     private List <UserModel> listUsers;
     private IRecyclerView iRecyclerView;
@@ -27,10 +29,12 @@ public class ListUsersAdapter
         listUsers = new ArrayList<>();
     }
 
+    @Override
     public void addIRecyclerView (IRecyclerView iRecyclerView){
         this.iRecyclerView = iRecyclerView;
     }
 
+    @Override
     public void setListUsersAdapter (List<UserModel> newListUsers){
         listUsers.clear();
         listUsers.addAll(newListUsers);
