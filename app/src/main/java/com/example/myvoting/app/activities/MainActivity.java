@@ -3,7 +3,6 @@ package com.example.myvoting.app.activities;
  *
  */
 import android.Manifest;
-import android.app.ActivityManager;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
